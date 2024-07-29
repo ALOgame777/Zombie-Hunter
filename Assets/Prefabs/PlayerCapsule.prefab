@@ -153,6 +153,10 @@ GameObject:
   - component: {fileID: 1978471637655604388}
   - component: {fileID: 5420857361349278248}
   - component: {fileID: 8616685848737228376}
+  - component: {fileID: 3710814731080452039}
+  - component: {fileID: 8159619253909430363}
+  - component: {fileID: 6248892602986480094}
+  - component: {fileID: 6525309928489954153}
   m_Layer: 8
   m_Name: PlayerCapsule
   m_TagString: Player
@@ -220,7 +224,7 @@ MonoBehaviour:
   MoveSpeed: 4
   SprintSpeed: 6
   RotationSpeed: 1
-  SpeedChangeRate: 10
+  SpeedChangeRate: 15
   JumpHeight: 1.2
   Gravity: -15
   JumpTimeout: 0.1
@@ -369,6 +373,61 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &3710814731080452039
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8616685848737228372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14e4b178d08e36b428564bb32e1c5380, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentWeapon: {fileID: 0}
+--- !u!114 &8159619253909430363
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8616685848737228372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: baea0904564a78e40b5ca98b762a5bcb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 0
+  maxHealth: 0
+  isDead: 0
+--- !u!114 &6248892602986480094
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8616685848737228372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2098b42729e1c5448c8ed3eb97b2f27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentHealthText: {fileID: 0}
+  maxHealthText: {fileID: 0}
+--- !u!114 &6525309928489954153
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8616685848737228372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c026894ccfd1ea54c9293dbc83ca1505, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  invincibilityDuration: 2
 --- !u!1001 &3050352195758775360
 PrefabInstance:
   m_ObjectHideFlags: 0
