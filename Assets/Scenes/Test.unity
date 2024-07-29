@@ -1463,6 +1463,8 @@ MonoBehaviour:
   attackDistance: 2
   moveSpeed: 5
   attackPower: 5
+  moveDistance: 20
+  hp: 200
 --- !u!4 &661718123 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8642225304373351647, guid: 50a0925b0c22af146a2d15615f815a1c,
@@ -3515,6 +3517,8 @@ MonoBehaviour:
   attackDistance: 2
   moveSpeed: 5
   attackPower: 5
+  moveDistance: 20
+  hp: 200
 --- !u!1 &1770731880
 GameObject:
   m_ObjectHideFlags: 0
@@ -4562,7 +4566,7 @@ PrefabInstance:
     - target: {fileID: 4353874265501745388, guid: c5efc39a8aaf6e64ea40e9ad573e9b47,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.20000076
+      value: 0.19999695
       objectReference: {fileID: 0}
     - target: {fileID: 4353874265501745388, guid: c5efc39a8aaf6e64ea40e9ad573e9b47,
         type: 3}
@@ -4607,7 +4611,7 @@ PrefabInstance:
     - target: {fileID: 8997996947095583982, guid: c5efc39a8aaf6e64ea40e9ad573e9b47,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -33.02
+      value: -85.94
       objectReference: {fileID: 0}
     - target: {fileID: 8997996947095583982, guid: c5efc39a8aaf6e64ea40e9ad573e9b47,
         type: 3}

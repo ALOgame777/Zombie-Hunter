@@ -1,11 +1,10 @@
-using StarterAssets;
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyFSM : MonoBehaviour
+public class BOSS : MonoBehaviour
 {
+
     // 에너미 상태 상수
     enum EnemyState
     {
@@ -20,7 +19,7 @@ public class EnemyFSM : MonoBehaviour
     EnemyState m_state;
 
     // 플레이어 발견 범위
-    public float findDistance = 8f;
+    public float findDistance = 80f;
 
     // 플레이어 트랜스폼
     Transform player;
@@ -29,7 +28,7 @@ public class EnemyFSM : MonoBehaviour
     public float attackDistance = 2f;
 
     // 이동 속도
-    public float moveSpeed = 5f;
+    public float moveSpeed = 2f;
 
     // 캐릭터 컨트롤러 컴포넌트
     CharacterController cc;
@@ -41,17 +40,17 @@ public class EnemyFSM : MonoBehaviour
     float attackDelay = 2f;
 
     // 에너미의 공격력
-    public int attackPower = 5;
+    public int attackPower = 10;
 
     // 초기 위치 저장용 변수
     Vector3 orginPos;
 
     // 이동 가능 범위
-    public float moveDistance = 20f;
+    public float moveDistance = 200f;
 
     // 에너미의 체력
-    public int hp = 200;
-    private int maxHp = 200;
+    public int hp = 50000;
+    //private int 
 
     void Start()
     {
@@ -152,7 +151,7 @@ public class EnemyFSM : MonoBehaviour
         {
             transform.position = orginPos;
             // hp를 다시 회복
-            hp = maxHp;
+            // hp = maxHp;
             m_state = EnemyState.Idle;
             print("상태 전환 : return -> Idle");
         }
@@ -166,7 +165,7 @@ public class EnemyFSM : MonoBehaviour
         {
             m_state = EnemyState.Move;
             print("상태 전환 : Idle -> Move");
-        }   
+        }
     }
 
     void Move()
