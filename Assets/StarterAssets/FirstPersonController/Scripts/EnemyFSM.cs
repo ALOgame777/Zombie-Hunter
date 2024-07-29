@@ -1,3 +1,4 @@
+using StarterAssets;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -47,7 +48,7 @@ public class EnemyFSM : MonoBehaviour
         m_state = EnemyState.Idle;
 
         // 플레이어의 트랜스폼 컴포넌트 받아오기
-        player = GameObject.Find("Player").transform;
+        player = GameObject.Find("PlayerCapsule").transform;
 
         // 캐릭터 컨트롤러 컴포넌트 받아오기
         cc = GetComponent<CharacterController>();
@@ -69,13 +70,13 @@ public class EnemyFSM : MonoBehaviour
                 Attack();
                 break;
             case EnemyState.Return:
-                Return();
+                //Return();
                 break;
             case EnemyState.Damaged:
-                Damaged();
+                //Damaged();
                 break;
             case EnemyState.Die:
-                Die();
+                //Die();
                 break;
         }
 
@@ -85,9 +86,9 @@ public class EnemyFSM : MonoBehaviour
         // 만일, 플레이어와의 거리가 액션 시작 범위 이내라면 Move 상태로 전환한다.
         if (Vector3.Distance(transform.position, player.position) < findDistance)
         {
-            m_State = EnemyState.Move;
+            m_state = EnemyState.Move;
             print("상태 전환 : Idle -> Move");
-        }
+        }   
     }
 
     void Move()
@@ -120,7 +121,7 @@ public class EnemyFSM : MonoBehaviour
             currentTime += Time.deltaTime;
             if (currentTime > attackDelay)
             {
-                player.GetComponent<PlayerMove>
+                player.GetComponent<FirstPersonController>();
                 print("공격");
                 currentTime = 0;
             }
@@ -129,7 +130,7 @@ public class EnemyFSM : MonoBehaviour
         //그렇지 않다면 현재 상태를 이동으로 전환한다(추격)
         else
         {
-            m_State = EnemyState.Move;
+            m_state = EnemyState.Move;
             print("상태 전환 : Attack -> Move");
             currentTime = 0;
         }
