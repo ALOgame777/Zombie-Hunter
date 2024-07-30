@@ -206,7 +206,7 @@ public class BOSS : MonoBehaviour
             currentTime += Time.deltaTime;
             if (currentTime > attackDelay)
             {
-                player.GetComponent<CharacterStats>().DamageAction(attackPower);
+                player.GetComponent<CharacterStats>().TakeDamage(attackPower);
                 print("АјАн");
                 currentTime = 0;
             }

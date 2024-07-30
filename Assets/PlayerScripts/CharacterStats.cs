@@ -77,12 +77,6 @@ public class CharacterStats : MonoBehaviour
         isDead = true;
     }
 
-    // K 작성 코드 입니당
-    // 플레이어 피격  함수
-    public void DamageAction(int damage)
-    {
-        // 에너미의 공격력 만큼 플레이어의 체력을 깎는닷!
-        health -= damage;
-    }
+    
 
 }
