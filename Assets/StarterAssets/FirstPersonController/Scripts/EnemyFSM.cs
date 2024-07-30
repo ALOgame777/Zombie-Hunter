@@ -47,7 +47,7 @@ public class EnemyFSM : MonoBehaviour
     Vector3 orginPos;
 
     // 이동 가능 범위
-    public float moveDistance = 20f;
+    public float moveDistance = 50f;
 
     // 에너미의 체력
     public int hp = 200;
