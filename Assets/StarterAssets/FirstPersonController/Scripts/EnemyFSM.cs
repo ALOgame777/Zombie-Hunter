@@ -52,7 +52,7 @@ public class EnemyFSM : MonoBehaviour
 
     // 에너미의 체력
     public int hp = 200;
-    private int maxHp = 200;
+    private int maxHp = 10000;
 
     private CharacterStats playerStats;
 

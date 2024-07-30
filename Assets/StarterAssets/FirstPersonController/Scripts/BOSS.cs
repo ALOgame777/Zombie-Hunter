@@ -6,7 +6,7 @@ public class BOSS : MonoBehaviour
 {
 
     // 에너미 상태 상수
-    enum EnemyState
+    public enum BossState
     {
         Idle,
         Move,
@@ -16,16 +16,16 @@ public class BOSS : MonoBehaviour
         Die
     }
     // 에너미 상태 변수
-    EnemyState m_state;
+    public BossState m_state;
 
     // 플레이어 발견 범위
     public float findDistance = 80f;
 
     // 플레이어 트랜스폼
-    Transform player;
+    public Transform player;
 
     // 공격 가능 범위
-    public float attackDistance = 2f;
+    public float attackDistance = 200f;
 
     // 이동 속도
     public float moveSpeed = 2f;
@@ -37,10 +37,10 @@ public class BOSS : MonoBehaviour
     float currentTime = 0;
 
     // 공격 딜레이 시간
-    float attackDelay = 2f;
+    public float attackDelay = 2f;
 
     // 에너미의 공격력
-    public int attackPower = 10;
+    public int attackPower = 30;
 
     // 이동 가능 범위
     public float moveDistance = 200f;
@@ -48,16 +48,20 @@ public class BOSS : MonoBehaviour
     // 에너미의 체력
     public int hp = 50000;
 
+    public CharacterStats playerStats;
+
     void Start()
     {
         // 최초의 에너미  상태는 대기(Idle)로 한다.
-        m_state = EnemyState.Idle;
+        m_state = BossState.Idle;
 
         // 플레이어의 트랜스폼 컴포넌트 받아오기
         player = GameObject.Find("PlayerCapsule").transform;
 
         // 캐릭터 컨트롤러 컴포넌트 받아오기
         cc = GetComponent<CharacterController>();
+
+        playerStats = CharacterStats.cs;
     }
 
     void Update()
@@ -65,19 +69,19 @@ public class BOSS : MonoBehaviour
         // 현재 상태를 체크해 해당 상태별로 정해진 기능을 수행하게 하고싶다.
         switch (m_state)
         {
-            case EnemyState.Idle:
+            case BossState.Idle:
                 Idle();
                 break;
-            case EnemyState.Move:
+            case BossState.Move:
                 Move();
                 break;
-            case EnemyState.Attack:
+            case BossState.Attack:
                 Attack();
                 break;
-            case EnemyState.Damaged:
+            case BossState.Damaged:
                 //Damaged();
                 break;
-            case EnemyState.Die:
+            case BossState.Die:
                 //Die();
                 break;
         }
@@ -88,7 +92,7 @@ public class BOSS : MonoBehaviour
     public void HitEnemy(int hitPower)
     {
         // 만일 이미 피격 상태이거나 사망 상태 또는 복귀 상태라면 아무런 처리도 하지 않고 함수를 종료한다.
-        if (m_state == EnemyState.Damaged || m_state == EnemyState.Die || m_state == EnemyState.Return)
+        if (m_state == BossState.Damaged || m_state == BossState.Die || m_state == BossState.Return)
         {
             return;
         }
@@ -98,14 +102,14 @@ public class BOSS : MonoBehaviour
         // 에너미의 체력이 0보다 크면 피격 상태로 전환
         if (hp > 0)
         {
-            m_state = EnemyState.Damaged;
+            m_state = BossState.Damaged;
             print("상태 전환 : any state -> damaged");
             Damaged();
         }
         // 그렇지 않다면 죽음 상태로 전환
         else
         {
-            m_state = EnemyState.Die;
+            m_state = BossState.Die;
             print("상태 전환 : any state -> die");
             Die();
         }
@@ -123,7 +127,7 @@ public class BOSS : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
 
         // 현재 상태를 이동 상태로 전환
-        m_state = EnemyState.Move;
+        m_state = BossState.Move;
         print("상태 전환 : damaged -> move");
     }
 
@@ -132,13 +136,14 @@ public class BOSS : MonoBehaviour
         // 만일, 플레이어와의 거리가 액션 시작 범위 이내라면 Move 상태로 전환한다.
         if (Vector3.Distance(transform.position, player.position) < findDistance)
         {
-            m_state = EnemyState.Move;
+            m_state = BossState.Move;
             print("상태 전환 : Idle -> Move");
         }
     }
 
     void Move()
     {
+        print(player.position);
         // 만일 플레이어와의 거리가 공격 범위 밖이라면 플레이어를 향해 이동한다.
         if (Vector3.Distance(transform.position, player.position) > attackDistance)
         {
@@ -147,11 +152,20 @@ public class BOSS : MonoBehaviour
 
             // 캐릭터 컨트롤러를 이용해 이동하기
             cc.Move(dir * moveSpeed * Time.deltaTime);
+
+            // 플레이어와의 거리가 공격범위 안이라면 현재 상태를 공격으로 전환한다.
+            if(Vector3.Distance(transform.position, player.position) < attackDistance)
+            {
+                print("상태 전환 : Move -> Attack");
+                m_state = BossState.Attack;
+            }
+
+
         }
         //그렇지 않다면 현재 상태를 공격으로 전환한다.
         else
         {
-            m_state = EnemyState.Attack;
+            m_state = BossState.Attack;
             print("상태 전환 : Move -> Attack");
 
             // 누적 시간을 공격 딜레이 시간 만큼 미리 진행시켜 놓는다.
@@ -168,16 +182,25 @@ public class BOSS : MonoBehaviour
             if (currentTime > attackDelay)
             {
                 player.GetComponent<CharacterStats>().TakeDamage(attackPower);
-                print("공격");
                 currentTime = 0;
             }
         }
         //그렇지 않다면 현재 상태를 이동으로 전환한다(추격)
         else
         {
-            m_state = EnemyState.Move;
+            m_state = BossState.Move;
             print("상태 전환 : Attack -> Move");
             currentTime = 0;
+        }
+    }
+
+
+    private void OnTriggerStay(Collider other)
+    {
+        
+        if (other.gameObject.CompareTag("Player"))
+        {
+            Attack();  // 플레이어와 충돌 시 Attack 메서드 호출
         }
     }
     // 죽음 상태 함수

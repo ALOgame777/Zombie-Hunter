@@ -25,8 +25,16 @@ public class Weapon : MonoBehaviour
         {
             
             EnemyFSM target = hit.transform.GetComponent<EnemyFSM>();
-            if (target == null) return;
-            target.HitEnemy(damage);
+            BOSS target1 = hit.transform.GetComponent<BOSS>();
+            if (target != null)
+            {
+                target.HitEnemy(damage);
+            }
+            if (target1 != null)
+            {
+                target1.HitEnemy(damage);
+            }
+
         }
         else
         {
