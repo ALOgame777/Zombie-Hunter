@@ -5,7 +5,7 @@ using UnityEngine;
 public class SpawnTree : MonoBehaviour
 {
     public GameObject enemyPrefab; // 생성할 프리팹
-    public float delayTime = 20.0f; // 생성 주기
+    public float delayTime = 30.0f; // 생성 주기
 
     float currentTime = 0;
 
@@ -13,11 +13,6 @@ public class SpawnTree : MonoBehaviour
     public float patrolRadius; // 원의 반지름
 
     private void Update()
-    {
-        SpawnTREE();
-    }
-
-    void SpawnTREE()
     {
         currentTime += Time.deltaTime;
         if (currentTime > delayTime)
@@ -28,9 +23,10 @@ public class SpawnTree : MonoBehaviour
 
             // 프리팹 생성
             Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);
+
+            // 시간 초기화
+             currentTime = 0;
         }
-        // 시간 초기화
-        currentTime = 0;
     }
-   
+
 }
