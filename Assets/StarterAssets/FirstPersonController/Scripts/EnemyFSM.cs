@@ -2,6 +2,7 @@ using StarterAssets;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 
 public class EnemyFSM : MonoBehaviour
@@ -126,6 +127,40 @@ public class EnemyFSM : MonoBehaviour
             Die();
         }
     }
+    //// 상대방이 나에게 데미지를 부여하는 함수
+    //public void TakeDamage(float atkPower, Vector3 hitDir, Transform attacker)
+    //{
+       
+
+    //    // 1. 현재 체력에 상대의 공격력만큼을 감소시킨다. (min 0 ~ max 100)
+    //    hp = Mathf.Clamp(hp - hitPower, 0, maxHP);
+
+    //    // 2. 만일 그 결과 현재 체력이 0 이하라면
+    //    if (currentHP <= 0)
+    //    {
+    //        // 2-1. 나의 상태를 죽음 상태로 전환
+    //        myState = EnemyState.Dead;
+    //        print("My state : any -> dead");
+    //        currentTime = 0;
+
+    //        // 2-2. 콜라이더 컴포넌트 비활성화
+    //        GetComponent<CapsuleCollider>().enabled = false;
+    //        GetComponent<CharacterController>().enabled = false;
+
+    //    }
+    //    // 3. 그렇지 않다면
+    //    else
+    //    {
+    //        // 3-1. 나의 상태를 데미지 상태로 전환
+    //        myState = EnemyState.Damaged;
+    //        print("My state : any -> damaged");
+    //        // 3-2. 타격 방향으로 일정 거리만큼을 넉백 위치로 지정한다.
+    //        hitDirection = transform.position + hitDir * 1.5f;
+    //        // 3-3. 공격자를 타겟으로 설정
+    //        target = attacker;
+    //        //hitDirection = transform.position + hitDir * 
+    //    }
+    //}
 
     private void Damaged()
     {
@@ -142,6 +177,8 @@ public class EnemyFSM : MonoBehaviour
         m_state = EnemyState.Move;
         print("상태 전환 : damaged -> move");
     }
+   
+
 
     private void Return()
     {

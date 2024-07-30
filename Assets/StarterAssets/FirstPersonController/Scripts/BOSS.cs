@@ -42,15 +42,11 @@ public class BOSS : MonoBehaviour
     // 에너미의 공격력
     public int attackPower = 10;
 
-    // 초기 위치 저장용 변수
-    Vector3 orginPos;
-
     // 이동 가능 범위
     public float moveDistance = 200f;
 
     // 에너미의 체력
     public int hp = 50000;
-    //private int 
 
     void Start()
     {
@@ -62,12 +58,8 @@ public class BOSS : MonoBehaviour
 
         // 캐릭터 컨트롤러 컴포넌트 받아오기
         cc = GetComponent<CharacterController>();
-
-        // 자신의 초기 위치 저장하기
-        orginPos = transform.position;
     }
 
-    // Update is called once per frame
     void Update()
     {
         // 현재 상태를 체크해 해당 상태별로 정해진 기능을 수행하게 하고싶다.
@@ -81,9 +73,6 @@ public class BOSS : MonoBehaviour
                 break;
             case EnemyState.Attack:
                 Attack();
-                break;
-            case EnemyState.Return:
-                Return();
                 break;
             case EnemyState.Damaged:
                 //Damaged();
@@ -138,26 +127,6 @@ public class BOSS : MonoBehaviour
         print("상태 전환 : damaged -> move");
     }
 
-    private void Return()
-    {
-        // 만일 초기 위치에서의 거리가 0.1f 이상이면 초기 위치 쪽으로 이동
-        if (Vector3.Distance(transform.position, orginPos) > 0.1f)
-        {
-            Vector3 dir = (orginPos - transform.position).normalized;
-            cc.Move(dir * moveSpeed * Time.deltaTime);
-        }
-        // 그렇지 않다면 자신의 위치를 초기 위치로 조정하고 현재 상태를 대기로 전환
-        else
-        {
-            transform.position = orginPos;
-            // hp를 다시 회복
-            // hp = maxHp;
-            m_state = EnemyState.Idle;
-            print("상태 전환 : return -> Idle");
-        }
-
-    }
-
     void Idle()
     {
         // 만일, 플레이어와의 거리가 액션 시작 범위 이내라면 Move 상태로 전환한다.
@@ -170,16 +139,8 @@ public class BOSS : MonoBehaviour
 
     void Move()
     {
-        // 만일 현재 위치가 초기 위치에서 이동 가능 범위를 넘어간다면
-        if (Vector3.Distance(transform.position, orginPos) > moveDistance)
-        {
-            // 현재 상태를 복귀(return)로 전환
-            m_state = EnemyState.Return;
-            print("상태 전환 : move -> return");
-        }
-
         // 만일 플레이어와의 거리가 공격 범위 밖이라면 플레이어를 향해 이동한다.
-        else if (Vector3.Distance(transform.position, player.position) > attackDistance)
+        if (Vector3.Distance(transform.position, player.position) > attackDistance)
         {
             // 이동 방향 설정
             Vector3 dir = (player.position - transform.position).normalized;
@@ -210,7 +171,6 @@ public class BOSS : MonoBehaviour
                 print("공격");
                 currentTime = 0;
             }
-
         }
         //그렇지 않다면 현재 상태를 이동으로 전환한다(추격)
         else
@@ -240,7 +200,9 @@ public class BOSS : MonoBehaviour
         print("소멸");
         Destroy(gameObject);
     }
-
-
+    //Vector2 newPos = Random.insideUnitCircle * initPreferences.patrolRadius;
+    // patrolNext = patrolCenter + new Vector3(newPos.x, 0, newPos.y);
+    // myState = EnemyState.Idle;
+    // idleTime = Random.Range(2.0f, 3.0f);
 
 }
