@@ -2470,6 +2470,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4475868520541859813, guid: 4df63051a82b2494d9fe0d4d3422cb71,
         type: 3}
+      propertyPath: attackPower
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 4475868520541859813, guid: 4df63051a82b2494d9fe0d4d3422cb71,
+        type: 3}
       propertyPath: attackDistance
       value: 20
       objectReference: {fileID: 0}
