@@ -53,6 +53,8 @@ public class EnemyFSM : MonoBehaviour
     public int hp = 200;
     private int maxHp = 200;
 
+    private CharacterStats playerStats;
+
     void Start()
     {
         // 최초의 에너미  상태는 대기(Idle)로 한다.
@@ -66,6 +68,8 @@ public class EnemyFSM : MonoBehaviour
 
         // 자신의 초기 위치 저장하기
         orginPos = transform.position;
+
+        playerStats = CharacterStats.cs;
     }
 
     // Update is called once per frame
@@ -207,7 +211,7 @@ public class EnemyFSM : MonoBehaviour
             currentTime += Time.deltaTime;
             if (currentTime > attackDelay)
             {
-                player.GetComponent<CharacterStats>().DamageAction(attackPower);
+                player.GetComponent<CharacterStats>().TakeDamage(attackPower);
                 print("공격");
                 currentTime = 0;
             }
@@ -221,6 +225,13 @@ public class EnemyFSM : MonoBehaviour
             currentTime = 0;
         }
     }
+    private void OnCollisionStay(Collision collision)
+{
+    if (collision.gameObject.CompareTag("Player"))
+    {
+        Attack();  // 플레이어와 충돌 시 Attack 메서드 호출
+    }
+}
     // 죽음 상태 함수
     void Die()
     {

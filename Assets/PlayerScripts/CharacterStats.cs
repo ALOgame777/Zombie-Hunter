@@ -4,13 +4,25 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class CharacterStats : MonoBehaviour
+public class CharacterStats : MonoBehaviour    
 {
+    public static CharacterStats cs;
     public int health;
     public int maxHealth;
 
     public bool isDead;
 
+    private void Awake()
+    {
+        if (cs == null)
+        {
+            cs = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
     private void Start()
     {
         InitVariables();

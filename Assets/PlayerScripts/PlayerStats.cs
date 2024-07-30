@@ -10,6 +10,7 @@ public class PlayerStats : CharacterStats
     {
         GetReferences();
         InitVariables();
+        CheckHealth();
     }
 
     public void GetReferences()
@@ -20,6 +21,14 @@ public class PlayerStats : CharacterStats
     public override void CheckHealth()
     {
         base.CheckHealth();
-        hud.UpdateHealth(health, maxHealth);
+        if (hud != null)
+        {
+            hud.UpdateHealth(health, maxHealth);
+        }
+        else
+        {
+            Debug.LogError("PlayerHUD reference is missing!");
+        }
     }
+
 }
