@@ -1055,6 +1055,11 @@ PrefabInstance:
       propertyPath: currentHealthText
       value: 
       objectReference: {fileID: 1528997696}
+    - target: {fileID: 7903693612927114282, guid: c5efc39a8aaf6e64ea40e9ad573e9b47,
+        type: 3}
+      propertyPath: hitEffet
+      value: 
+      objectReference: {fileID: 100008, guid: 7075bd5fe1480184695a32611c15da57, type: 3}
     - target: {fileID: 8616685848737228372, guid: c5efc39a8aaf6e64ea40e9ad573e9b47,
         type: 3}
       propertyPath: m_Name
@@ -1127,11 +1132,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: HalthCanvas
-      objectReference: {fileID: 0}
-    - target: {fileID: 5043810697133996706, guid: c64156589cbfcfe4cb766414e6498285,
-        type: 3}
-      propertyPath: m_Name
-      value: CrossHair
       objectReference: {fileID: 0}
     - target: {fileID: 8061774457036554181, guid: c64156589cbfcfe4cb766414e6498285,
         type: 3}
