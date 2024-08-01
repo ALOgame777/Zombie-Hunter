@@ -768,7 +768,7 @@ PrefabInstance:
     - target: {fileID: 6451589767442807625, guid: 2285505635aefdd40b3403e1d330a275,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1152,7 +1152,7 @@ PrefabInstance:
         type: 3}
       propertyPath: hitEffet
       value: 
-      objectReference: {fileID: 100008, guid: 7075bd5fe1480184695a32611c15da57, type: 3}
+      objectReference: {fileID: 100006, guid: 4575df893a6e3f64a8283dee38413a34, type: 3}
     - target: {fileID: 8616685848737228372, guid: c5efc39a8aaf6e64ea40e9ad573e9b47,
         type: 3}
       propertyPath: m_Name
@@ -1161,7 +1161,7 @@ PrefabInstance:
     - target: {fileID: 8616685848737228372, guid: c5efc39a8aaf6e64ea40e9ad573e9b47,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8997996947095583982, guid: c5efc39a8aaf6e64ea40e9ad573e9b47,
         type: 3}
