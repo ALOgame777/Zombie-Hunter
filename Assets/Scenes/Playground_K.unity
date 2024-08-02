@@ -7993,6 +7993,16 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 245270342}
+    - target: {fileID: 1550922201610562244, guid: c64156589cbfcfe4cb766414e6498285,
+        type: 3}
+      propertyPath: m_Text
+      value: "\uBB38 \uC5F4\uAE30 (E)\n700"
+      objectReference: {fileID: 0}
+    - target: {fileID: 1550922201610562244, guid: c64156589cbfcfe4cb766414e6498285,
+        type: 3}
+      propertyPath: m_FontData.m_FontStyle
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1833829885499085091, guid: c64156589cbfcfe4cb766414e6498285,
         type: 3}
       propertyPath: m_Name
@@ -8032,6 +8042,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5634029416976118767, guid: c64156589cbfcfe4cb766414e6498285,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5882393093197532105, guid: c64156589cbfcfe4cb766414e6498285,
         type: 3}

@@ -1,5 +1,5 @@
 
-// 와 딱 알맞게 잘 된거 같음 ㅋㅋ
+// 와 딱 알맞게 잘 된거 같음 ㅋㅋ 나무 체력 + 플레이어 속박 + 
 using System.Collections;
 using UnityEngine;
 
