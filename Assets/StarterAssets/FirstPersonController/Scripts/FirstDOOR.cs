@@ -44,6 +44,7 @@ public class FirstDOOR : MonoBehaviour
                 if (Input.GetKeyDown(KeyCode.E))
                 {
                     TryOpenDoor();
+                    HideSlider();
                 }
             }
             else
