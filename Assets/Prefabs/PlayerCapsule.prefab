@@ -189,7 +189,7 @@ GameObject:
   - component: {fileID: 8159619253909430363}
   - component: {fileID: 6248892602986480094}
   - component: {fileID: 6525309928489954153}
-  - component: {fileID: 3098139943534296659}
+  - component: {fileID: 2298442961866372139}
   m_Layer: 8
   m_Name: PlayerCapsule
   m_TagString: Player
@@ -432,6 +432,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 300
   maxHealth: 300
+  img_hitUI: {fileID: 0}
   isDead: 0
 --- !u!114 &6248892602986480094
 MonoBehaviour:
@@ -460,7 +461,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   invincibilityDuration: 2
---- !u!54 &3098139943534296659
+--- !u!54 &2298442961866372139
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
