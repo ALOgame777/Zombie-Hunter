@@ -38,6 +38,7 @@ public class Weapon : MonoBehaviour
             CreateHitImpact(hit);
             EnemyFSM target = hit.transform.GetComponent<EnemyFSM>();
             BOSS target1 = hit.transform.GetComponent<BOSS>();
+            TREE target2 = hit.transform.GetComponent<TREE>();
             if (target != null)
             {
                 target.HitEnemy(damage);
@@ -46,6 +47,11 @@ public class Weapon : MonoBehaviour
             {
                 target1.HitEnemy(damage);
             }
+            if (target2 != null)
+            {
+                target2.TakeDamage(damage);
+            }
+
 
         }
         else
