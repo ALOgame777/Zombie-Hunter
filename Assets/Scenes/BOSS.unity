@@ -1206,6 +1206,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &874767595 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3015740888820827258, guid: c64156589cbfcfe4cb766414e6498285,
+    type: 3}
+  m_PrefabInstance: {fileID: 1241190531}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1080261622 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6517856214852480943, guid: c64156589cbfcfe4cb766414e6498285,
@@ -1610,6 +1616,11 @@ PrefabInstance:
       propertyPath: currentHealthText
       value: 
       objectReference: {fileID: 1241190533}
+    - target: {fileID: 7903693612927114282, guid: c5efc39a8aaf6e64ea40e9ad573e9b47,
+        type: 3}
+      propertyPath: damage
+      value: 10000
+      objectReference: {fileID: 0}
     - target: {fileID: 7903693612927114282, guid: c5efc39a8aaf6e64ea40e9ad573e9b47,
         type: 3}
       propertyPath: ammoText
@@ -2963,6 +2974,11 @@ PrefabInstance:
       propertyPath: GoStartButton
       value: 
       objectReference: {fileID: 1530795802}
+    - target: {fileID: 4475868520541859813, guid: 4df63051a82b2494d9fe0d4d3422cb71,
+        type: 3}
+      propertyPath: blackScreenUI
+      value: 
+      objectReference: {fileID: 874767595}
     - target: {fileID: 4475868520541859813, guid: 4df63051a82b2494d9fe0d4d3422cb71,
         type: 3}
       propertyPath: attackDistance
