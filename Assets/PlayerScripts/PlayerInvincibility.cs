@@ -6,10 +6,10 @@ public class PlayerInvincibility : MonoBehaviour
 {
     public float invincibilityDuration = 2f;
     private bool isInvincible = false;
-    private Collider playerCollider;
+    private CapsuleCollider[] capsuleColliders; // Array to store CapsuleColliders
+
     void Start()
     {
-
         // 게임 시작 시 무적 상태 적용
         StartCoroutine(ApplyInvincibility());
     }
@@ -25,20 +25,24 @@ public class PlayerInvincibility : MonoBehaviour
         isInvincible = true;
         Debug.Log("무적 상태 시작");
 
-        // 무적 상태 동안 충돌체를 비활성화
-        if (playerCollider != null)
+        // 자신과 자식 오브젝트에 있는 모든 CapsuleCollider를 가져옴
+        capsuleColliders = GetComponentsInChildren<CapsuleCollider>(true);
+
+        // 모든 CapsuleCollider를 비활성화
+        foreach (CapsuleCollider col in capsuleColliders)
         {
-            playerCollider.enabled = false;
+            col.enabled = false;
         }
 
         yield return new WaitForSeconds(invincibilityDuration);
 
         isInvincible = false;
         Debug.Log("무적 상태 종료");
-        // 무적 상태 종료 후 충돌체를 다시 활성화
-        if (playerCollider != null)
+
+        // 무적 상태 종료 후 모든 CapsuleCollider를 다시 활성화
+        foreach (CapsuleCollider col in capsuleColliders)
         {
-            playerCollider.enabled = true;
+            col.enabled = true;
         }
     }
 
@@ -47,6 +51,7 @@ public class PlayerInvincibility : MonoBehaviour
     {
         return isInvincible;
     }
+
     void OnCollisionEnter(Collision collision)
     {
         if (isInvincible)

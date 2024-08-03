@@ -244,6 +244,13 @@ public class EnemyFSM : MonoBehaviour
         //만일 플레이어가 공격 범위 이내에 있다면 플레이어를 공격한다.
         if (Vector3.Distance(transform.position, player.position) < attackDistance)
         {
+            PlayerInvincibility playerInvincibility = player.GetComponent<PlayerInvincibility>();
+            if (playerInvincibility != null && playerInvincibility.IsInvincible())
+            {
+                // Player is invincible, do not attack
+                print("플레이어가 무적 상태입니다. 공격을 무시합니다.");
+                return;
+            }
             // 일정 시간마다 플레이어를 공격한다.
             currentTime += Time.deltaTime;
             if (currentTime > attackDelay)

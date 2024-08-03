@@ -616,17 +616,17 @@ PrefabInstance:
     - target: {fileID: 6838886298550983838, guid: 03b575e849658bb43b6fadbd22b3b053,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -8.96
+      value: 1.41
       objectReference: {fileID: 0}
     - target: {fileID: 6838886298550983838, guid: 03b575e849658bb43b6fadbd22b3b053,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.56
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6838886298550983838, guid: 03b575e849658bb43b6fadbd22b3b053,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 18.2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6838886298550983838, guid: 03b575e849658bb43b6fadbd22b3b053,
         type: 3}
@@ -1298,6 +1298,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5393215578589016640, guid: c5efc39a8aaf6e64ea40e9ad573e9b47,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6248892602986480094, guid: c5efc39a8aaf6e64ea40e9ad573e9b47,
         type: 3}
       propertyPath: maxHealthText
