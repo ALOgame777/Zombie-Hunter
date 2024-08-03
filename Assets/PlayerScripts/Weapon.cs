@@ -1,28 +1,53 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Weapon : MonoBehaviour
 {
-    [SerializeField] Camera FPCamera;
-    [SerializeField] float range = 100.0f;
-    [SerializeField] int damage = 50;
+    public Camera FPCamera;
+    public float range = 100.0f;
+    public int damage = 50;
     public ParticleSystem muzzle;
     public GameObject hitEffet;
-    // Update is called once per frame
+    public Ammo ammoSlot;
+    public AmmoType ammoType;
+    public float timeBetweenShots = 0.5f;
+    public Text ammoText;
+    bool canShoot = true;
+
+    private void OnEnable()
+    {
+        canShoot = true;
+    }
+
     void Update()
     {
-        if(Input.GetButtonDown("Fire1"))
+        DisplayAmmo();
+        if (Input.GetMouseButtonDown(0) && canShoot == true)
         {
-            Shoot();
+            StartCoroutine(Shoot());
         }
     }
 
-    private void Shoot()
+    private void DisplayAmmo()
     {
-        PlayMuzzleFlash();
-        ProcessRayCast();
+        int currentAmmo = ammoSlot.GetCurrentAmmo(ammoType);
+        ammoText.text = currentAmmo.ToString();
+    }
+    IEnumerator Shoot()
+    {
+        canShoot = false;
+        if (ammoSlot.GetCurrentAmmo(ammoType) > 0)
+        {
+            PlayMuzzleFlash();
+            ProcessRayCast();
+            ammoSlot.ReduceCurrentAmmo(ammoType);
+        }
+        yield return new WaitForSeconds(timeBetweenShots);
+        canShoot = true;
     }
 
     private void PlayMuzzleFlash()
