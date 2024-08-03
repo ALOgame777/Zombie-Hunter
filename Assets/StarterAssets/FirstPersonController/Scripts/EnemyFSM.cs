@@ -30,7 +30,7 @@ public class EnemyFSM : MonoBehaviour
     public float attackDistance = 2f;
 
     // 이동 속도
-    public float moveSpeed = 5f;
+    public float moveSpeed = 2f;
 
     // 캐릭터 컨트롤러 컴포넌트
     CharacterController cc;
@@ -285,7 +285,7 @@ public class EnemyFSM : MonoBehaviour
         cc.enabled = false;
 
         // 2초 동안 기다린 후에 자기 자신을 제거한다
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1f);
         print("소멸");
         Destroy(gameObject);
     }

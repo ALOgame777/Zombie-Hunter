@@ -9,7 +9,7 @@ public class WINDOW : MonoBehaviour
     public Slider progressSlider; // UI 슬라이더
     public float incrementAmount = 1.0f; // 슬라이더 증가량
      float incrementDuration = 1f; // 증가 시간
-    public float showDistance = 2.0f; // 슬라이더가 보이는 거리
+    public float showDistance = 1f; // 슬라이더가 보이는 거리
 
     private CanvasGroup sliderCanvasGroup; // 투명도와 상호작용 관리하는 캔버스
     private Transform playerTransform; // 플레이어 위치 추적

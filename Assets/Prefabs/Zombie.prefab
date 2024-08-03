@@ -100,7 +100,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   findDistance: 100
   attackDistance: 2
-  moveSpeed: 5
+  moveSpeed: 2
   attackPower: 5
   moveDistance: 50
   hp: 200

@@ -2,17 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpawnTree : MonoBehaviour
+public class RandomSpawnZombie : MonoBehaviour
 {
     public GameObject enemyPrefab; // 생성할 프리팹
-    public float delayTime = 30.0f; // 생성 주기
+    public float delayTime = 10.0f; // 생성 주기
 
     float currentTime = 0;
 
     public Vector3 patrolCenter; // 원의 중심
     public float patrolRadius; // 원의 반지름
 
-    private void Update()
+    void Update()
     {
         currentTime += Time.deltaTime;
         if (currentTime > delayTime)
@@ -25,8 +25,8 @@ public class SpawnTree : MonoBehaviour
             Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);
 
             // 시간 초기화
-             currentTime = 0;
+            currentTime = 0;
         }
     }
-
+   
 }
