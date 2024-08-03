@@ -17,7 +17,7 @@ public class LoadScene : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // 'E' 키를 누르면 씬을 로드
+        // 보스 죽이고 동영상 나오고 버튼 나온 뒤에 'E' 키를 누르면 씬을 로드
         if (GoStartButton.activeSelf && Input.GetKeyDown(KeyCode.E))
         {
             SceneManager.LoadScene(0);

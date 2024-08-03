@@ -1,3 +1,4 @@
+// 좀비 중력 추가?
 using StarterAssets;
 using System;
 using System.Collections;
@@ -54,7 +55,12 @@ public class EnemyFSM : MonoBehaviour
     public int hp = 200;
     private int maxHp = 10000;
 
+    // 캐릭터 스테이터스 스크립트  불러오기
     private CharacterStats playerStats;
+
+    // 중력 적용을 위한 변수
+    private Vector3 velocity;
+    public float gravity = -9.81f;
 
     void Start()
     {
@@ -218,6 +224,7 @@ public class EnemyFSM : MonoBehaviour
             // 현재 상태를 복귀(return)로 전환
             m_state = EnemyState.Return;
             print("상태 전환 : move -> return");
+
         }
 
         // 만일 플레이어와의 거리가 공격 범위 밖이라면 플레이어를 향해 이동한다.
@@ -225,6 +232,23 @@ public class EnemyFSM : MonoBehaviour
         {
             // 이동 방향 설정
             Vector3 dir = (player.position - transform.position).normalized;
+
+            // y 축 이동 제거
+            dir.y = 0;
+
+            // 캐릭터 컨트롤러를 이용해 이동하기
+            cc.Move(dir * moveSpeed * Time.deltaTime);
+
+            // 중력 적용
+            if (!cc.isGrounded)
+            {
+                velocity.y += gravity * Time.deltaTime;
+                cc.Move(velocity * Time.deltaTime);
+            }
+            else
+            {
+                velocity.y = 0;
+            }
 
             // 캐릭터 컨트롤러를 이용해 이동하기
             cc.Move(dir * moveSpeed * Time.deltaTime);
