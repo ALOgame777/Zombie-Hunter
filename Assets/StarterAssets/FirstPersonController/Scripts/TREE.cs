@@ -54,6 +54,7 @@ public class TREE : MonoBehaviour
     {
         Debug.Log("Tree died");
         Destroy(gameObject); // 나무 오브젝트를 파괴
+        ScoreManager.Instance.AddScore(10);
     }
 
 }
