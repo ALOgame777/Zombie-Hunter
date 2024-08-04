@@ -75,8 +75,8 @@ public class BOSS : MonoBehaviour
     public float poisonInterval = 16f; // 16초마다 독극물 뿌리기
     private float poisonTimer = 0f;
     public GameObject poisonAreaPrefab; // 독극물 영역 프리팹
-    public float poisonRadius = 3f; // 독극물 범위
-    public float poisonDuration = 3f; // 독극물 지속 시간
+    public float poisonRadius = 5f; // 독극물 범위
+    public float poisonDuration = 10f; // 독극물 지속 시간
 
     // 검은색 화면 UI
     public GameObject blackScreenUI;
@@ -338,6 +338,7 @@ public class BOSS : MonoBehaviour
     }
     IEnumerator ReleasePoison()
     {
+        print("독극물 뿌리기 시작");
         // 독극물 영역 생성
         GameObject poisonArea = Instantiate(poisonAreaPrefab, transform.position, Quaternion.identity);
         PoisonArea poisonScript = poisonArea.GetComponent<PoisonArea>();
@@ -346,6 +347,7 @@ public class BOSS : MonoBehaviour
         yield return new WaitForSeconds(poisonDuration);
 
         Destroy(poisonArea);
+        print("독극물 뿌리기 종료");
     }
 
     public void ApplyPoisonEffect()

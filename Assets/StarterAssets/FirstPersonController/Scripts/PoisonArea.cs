@@ -27,6 +27,7 @@ public class PoisonArea : MonoBehaviour
             {
                 if (hitCollider.CompareTag("Player"))
                 {
+                    print("플레이어 독극물 영역에 있음");
                     boss.ApplyPoisonEffect();
                 }
             }
