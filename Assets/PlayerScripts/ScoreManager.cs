@@ -55,5 +55,21 @@ public class ScoreManager : MonoBehaviour
     {
         return money;
     }
-
+    public bool TryOpenDoor(int requiredMoney)
+    {
+        Debug.Log($"문 열기 시도: 필요 금액 = {requiredMoney}, 현재 돈 = {money}");
+        if (money >= requiredMoney)
+        {
+            money -= requiredMoney;
+            UIManager.Instance.UpdateMoneyText(money);
+            
+            Debug.Log($"문이 열렸습니다! 남은 돈: {money}");
+            return true; // 문이 열리는 상태로 변경
+        }
+        else
+        {
+            Debug.Log("돈이 부족합니다. 문을 열 수 없습니다.");
+            return false;
+        }
+    }
 }

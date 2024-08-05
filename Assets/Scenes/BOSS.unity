@@ -1621,10 +1621,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: HalthCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 3439756660934902378, guid: c64156589cbfcfe4cb766414e6498285,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 3439756660934902378, guid: c64156589cbfcfe4cb766414e6498285,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 250.2
+      objectReference: {fileID: 0}
     - target: {fileID: 5308632865833120972, guid: c64156589cbfcfe4cb766414e6498285,
         type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6575996918971380936, guid: c64156589cbfcfe4cb766414e6498285,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 6575996918971380936, guid: c64156589cbfcfe4cb766414e6498285,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 253.1
       objectReference: {fileID: 0}
     - target: {fileID: 8061774457036554181, guid: c64156589cbfcfe4cb766414e6498285,
         type: 3}

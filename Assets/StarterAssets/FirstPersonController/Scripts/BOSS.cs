@@ -154,6 +154,7 @@ public class BOSS : MonoBehaviour
 
         // 플레이어의 공격력 만큼 에너미 체력을 감소
         hp -= hitPower;
+        ScoreManager.Instance.AddScore(10000);
         // 에너미의 체력이 0보다 크면 피격 상태로 전환
         if (hp > 0)
         {

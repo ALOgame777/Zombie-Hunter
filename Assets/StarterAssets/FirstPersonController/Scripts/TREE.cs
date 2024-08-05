@@ -42,7 +42,6 @@ public class TREE : MonoBehaviour
     {
         currentHealth -= damage; // 현재 체력을 감소시킴
         Debug.Log("Tree took damage, current health: " + currentHealth);
-
         if (currentHealth <= 0)
         {
             Die(); // 체력이 0 이하가 되면 죽음 처리
@@ -54,7 +53,7 @@ public class TREE : MonoBehaviour
     {
         Debug.Log("Tree died");
         Destroy(gameObject); // 나무 오브젝트를 파괴
-        ScoreManager.Instance.AddScore(10);
+        ScoreManager.Instance.AddScore(10000);
     }
 
 }

@@ -14,9 +14,10 @@ public class FirstDOOR : MonoBehaviour
     private CanvasGroup Doorcanvasgroup; // 투명도와 상호작용 관리하는 캔버스
 
     public float DoorSpeed = 2; // 문이 올라가는 속도
-
-    private int playerMoney = 1000; // 플레이어의 초기 돈, 예시로 1000원 설정
+    public ScoreManager ScoreManager;
+    public UIManager UIManager;
     private bool isDoorOpening = false; // 문이 열리고 있는 상태를 추적
+
 
     void Start()
     {
@@ -45,7 +46,7 @@ public class FirstDOOR : MonoBehaviour
                 // 'E' 키를 누르면 문을 열도록 함
                 if (Input.GetKeyDown(KeyCode.E))
                 {
-                    TryOpenDoor();
+                    AttemptToOpenDoor();
                     HideSlider();
                 }
             }
@@ -78,20 +79,17 @@ public class FirstDOOR : MonoBehaviour
         Doorcanvasgroup.blocksRaycasts = false;
     }
 
-    private void TryOpenDoor()
-    {
-        // 플레이어의 돈이 700원 이상인지 확인
-        if (playerMoney >= 700)
-        {
-            // 700원 차감
-            playerMoney -= 700;
+    
 
+    public void AttemptToOpenDoor()
+    {
+        if (ScoreManager.Instance.TryOpenDoor(700))
+        {
+            Debug.Log("적 사망 전 점수: " + ScoreManager.Instance.GetScore());
+            Debug.Log("적 사망 후 점수: " + ScoreManager.Instance.GetScore());
             // 문이 열리는 상태로 변경
             isDoorOpening = true;
-        }
-        else
-        {
-            Debug.Log("돈이 부족합니다. 문을 열 수 없습니다.");
+            // 문 열림 처리 추가
         }
     }
 

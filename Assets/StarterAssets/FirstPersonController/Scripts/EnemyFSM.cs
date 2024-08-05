@@ -305,8 +305,9 @@ public class EnemyFSM : MonoBehaviour
     {
         // 진행 중인 피격 코루틴을 중지
         StopAllCoroutines();
-        ScoreManager.Instance.AddScore(10);
-
+        Debug.Log("적 사망 전 점수: " + ScoreManager.Instance.GetScore());
+        ScoreManager.Instance.AddScore(10000);
+        Debug.Log("적 사망 후 점수: " + ScoreManager.Instance.GetScore());
         // 죽음 상태를 처리하기 위한 코루틴
         StartCoroutine(DieProcess());
     }
