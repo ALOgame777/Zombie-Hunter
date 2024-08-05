@@ -288,7 +288,7 @@ public class BOSS : MonoBehaviour
         cc.enabled = false;
 
         // 5초 동안 기다린 후에 자기 자신을 제거한다
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(0f); // 애니메이션 넣으면 5초로 변경
         print("소멸");
         Destroy(gameObject);
 
