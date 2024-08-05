@@ -16,19 +16,47 @@ public class Weapon : MonoBehaviour
     public AmmoType ammoType;
     public float timeBetweenShots = 0.5f;
     public Text ammoText;
+    public Text magazineText;  // 기존 Text 컴포넌트를 사용
     bool canShoot = true;
+    public FPSCameraShake cameraShake;
 
+    public int maxMagazineSize = 30;
+    private int currentMagazineAmmo;
+
+    private void Awake()
+    {
+        // If FPSCameraShake is attached to the same GameObject
+        cameraShake = GetComponent<FPSCameraShake>();
+
+        // If FPSCameraShake is attached to the Camera or another GameObject
+        if (cameraShake == null)
+        {
+            cameraShake = FindObjectOfType<FPSCameraShake>();
+            if (cameraShake == null)
+            {
+                Debug.LogError("FPSCameraShake script is not found in the scene. Please attach the script to a GameObject.");
+            }
+        }
+        currentMagazineAmmo = maxMagazineSize;
+    }
     private void OnEnable()
     {
         canShoot = true;
+        DisplayAmmo();
     }
 
     void Update()
     {
         DisplayAmmo();
-        if (Input.GetMouseButtonDown(0) && canShoot == true)
+
+        if (Input.GetMouseButtonDown(0) && canShoot)
         {
             StartCoroutine(Shoot());
+        }
+
+        if (Input.GetKeyDown(KeyCode.R) && canShoot)
+        {
+            StartCoroutine(Reload());
         }
     }
 
@@ -36,16 +64,28 @@ public class Weapon : MonoBehaviour
     {
         int currentAmmo = ammoSlot.GetCurrentAmmo(ammoType);
         ammoText.text = currentAmmo.ToString();
+        magazineText.text = currentMagazineAmmo.ToString(); // 탄창의 남은 탄약을 표시
     }
     IEnumerator Shoot()
     {
         canShoot = false;
-        if (ammoSlot.GetCurrentAmmo(ammoType) > 0)
+
+        if (currentMagazineAmmo > 0)
         {
+            if (cameraShake != null)
+            {
+                cameraShake.ShakeCamera();
+            }
+
             PlayMuzzleFlash();
             ProcessRayCast();
-            ammoSlot.ReduceCurrentAmmo(ammoType);
+            currentMagazineAmmo--;
         }
+        else
+        {
+            Debug.Log("No ammo in magazine");
+        }
+
         yield return new WaitForSeconds(timeBetweenShots);
         canShoot = true;
     }
@@ -85,6 +125,31 @@ public class Weapon : MonoBehaviour
         }
 
         
+    }
+    IEnumerator Reload()
+    {
+        canShoot = false;
+        Debug.Log("Reloading...");
+
+        yield return new WaitForSeconds(2.0f); // Assuming reload takes 2 seconds
+
+        int ammoNeeded = maxMagazineSize - currentMagazineAmmo;
+        int currentAmmo = ammoSlot.GetCurrentAmmo(ammoType);
+
+        if (currentAmmo >= ammoNeeded)
+        {
+            ammoSlot.ReduceCurrentAmmo(ammoType, ammoNeeded);
+            currentMagazineAmmo = maxMagazineSize;
+        }
+        else
+        {
+            ammoSlot.ReduceCurrentAmmo(ammoType, currentAmmo);
+            currentMagazineAmmo += currentAmmo;
+        }
+
+        canShoot = true;
+        Debug.Log("Reloaded");
+        DisplayAmmo();
     }
 
     private void CreateHitImpact(RaycastHit hit)
