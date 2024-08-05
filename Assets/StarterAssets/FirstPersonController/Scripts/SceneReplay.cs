@@ -14,7 +14,7 @@ public class SceneReplay : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.R))
+        if (Input.GetKeyDown(KeyCode.T))
         {
             SceneManager.LoadScene(2);
         }
