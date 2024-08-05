@@ -1979,6 +1979,11 @@ PrefabInstance:
         type: 3}
       propertyPath: ammoText
       value: 
+      objectReference: {fileID: 1370440874}
+    - target: {fileID: 7903693612927114282, guid: c5efc39a8aaf6e64ea40e9ad573e9b47,
+        type: 3}
+      propertyPath: magazineText
+      value: 
       objectReference: {fileID: 1362108854}
     - target: {fileID: 8159619253909430363, guid: c5efc39a8aaf6e64ea40e9ad573e9b47,
         type: 3}
@@ -2344,6 +2349,18 @@ CapsuleCollider:
 --- !u!114 &1362108854 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8028705164361924999, guid: c64156589cbfcfe4cb766414e6498285,
+    type: 3}
+  m_PrefabInstance: {fileID: 1241190531}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1370440874 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4725721425748817452, guid: c64156589cbfcfe4cb766414e6498285,
     type: 3}
   m_PrefabInstance: {fileID: 1241190531}
   m_PrefabAsset: {fileID: 0}
