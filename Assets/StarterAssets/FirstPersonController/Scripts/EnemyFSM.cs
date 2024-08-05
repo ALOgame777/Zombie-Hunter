@@ -1,4 +1,4 @@
-// 좀비 중력 추가?
+// 좀비 중력 추가? + ++ 이동 방향으로 회전 추가
 using StarterAssets;
 using System;
 using System.Collections;
@@ -61,6 +61,8 @@ public class EnemyFSM : MonoBehaviour
     // 중력 적용을 위한 변수
     private Vector3 velocity;
     public float gravity = -9.81f;
+
+    public float patrolSpeed = 4;
 
     void Start()
     {
@@ -237,7 +239,16 @@ public class EnemyFSM : MonoBehaviour
             dir.y = 0;
 
             // 캐릭터 컨트롤러를 이용해 이동하기
-            cc.Move(dir * moveSpeed * Time.deltaTime);
+            //cc.Move(dir * moveSpeed * Time.deltaTime);
+
+            if (dir.magnitude > 0.1f)
+            {
+                // 캐릭터 컨트롤러를 이용해 이동하기
+                cc.Move(dir * moveSpeed * Time.deltaTime);
+
+                // 이동하려는 방향으로 회전한다.
+                transform.rotation = Quaternion.LookRotation(dir.normalized);
+            }
 
             // 중력 적용
             if (!cc.isGrounded)

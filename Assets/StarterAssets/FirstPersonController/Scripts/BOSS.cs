@@ -1,4 +1,4 @@
-// 널뛰기 버그 수정중...
+// 널뛰기 버그 수정중... ++ 이동 방향으로 회전 추가
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -211,7 +211,15 @@ public class BOSS : MonoBehaviour
             dir.y = 0;
 
             // 캐릭터 컨트롤러를 이용해 이동하기
-            cc.Move(dir * moveSpeed * Time.deltaTime);
+           // cc.Move(dir * moveSpeed * Time.deltaTime);
+            if (dir.magnitude > 0.1f)
+            {
+                // 캐릭터 컨트롤러를 이용해 이동하기
+                cc.Move(dir * moveSpeed * Time.deltaTime);
+
+                // 이동하려는 방향으로 회전한다.
+                transform.rotation = Quaternion.LookRotation(dir.normalized * -1);
+            }
 
             // 중력 적용
             if (!cc.isGrounded)
