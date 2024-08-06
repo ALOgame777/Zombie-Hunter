@@ -31,14 +31,9 @@ public class FPSCameraShake : MonoBehaviour
             }
         }
 
-        // 테스트를 위해 스페이스바를 누르면 카메라 흔들림 효과 적용
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            ShakeCamera();
-        }
     }
 
-    public void ShakeCamera()
+    public void ShakeCamera(float shakeIntensity, float shakeTime )
     {
         noise.m_AmplitudeGain = shakeIntensity;
         shakeTimer = shakeTime;

@@ -74,17 +74,27 @@ public class WeaponSwitcher : MonoBehaviour
 
         foreach (Transform weapon in transform)
         {
+            Weapon weaponComponent = weapon.GetComponent<Weapon>();
+
             if (weaponIndex == currentWeapon)
             {
                 weapon.gameObject.SetActive(true);
+                if (weaponComponent != null)
+                {
+                    weaponComponent.displayAmmo = true; // DisplayAmmo 활성화
+                    weaponComponent.DisplayAmmo(); // 현재 무기의 탄약 정보를 업데이트
+                }
             }
             else
             {
                 weapon.gameObject.SetActive(false);
+                if (weaponComponent != null)
+                {
+                    weaponComponent.displayAmmo = false; // DisplayAmmo 비활성화
+                }
             }
             weaponIndex++;
         }
-
     }
 
 }
