@@ -898,8 +898,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   virtualCamera: {fileID: 4450682246334715917}
-  shakeIntensity: 6
-  shakeTime: 0.4
+  shakeIntensity: 7
+  shakeTime: 1
 --- !u!20 &4353874265501745387 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 9005220659476430821, guid: 2d3a85ecde41a8246a79669975912b74,
@@ -1238,14 +1238,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FPCamera: {fileID: 4353874265501745387}
   range: 1000
-  damage: 10000
+  damage: 300
   muzzle: {fileID: 5691692563536502186}
   hitEffet: {fileID: 100006, guid: 4575df893a6e3f64a8283dee38413a34, type: 3}
   ammoSlot: {fileID: 4191767969934078374}
   ammoType: 0
   timeBetweenShots: 1
   ammoText: {fileID: 0}
-  cameraShake: {fileID: 0}
+  magazineText: {fileID: 0}
+  cameraShake: {fileID: 7372524778633055680}
+  maxMagazineSize: 30
 --- !u!114 &4667233094131817317
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -125,18 +125,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!114 &185666024 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7372524778633055680, guid: c5efc39a8aaf6e64ea40e9ad573e9b47,
-    type: 3}
-  m_PrefabInstance: {fileID: 5393215579111688471}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7c4c4d418b1dacc47bbdc3df0d92a46b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &195029883 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5210228359386701488, guid: c64156589cbfcfe4cb766414e6498285,
@@ -1195,31 +1183,11 @@ PrefabInstance:
       propertyPath: currentHealthText
       value: 
       objectReference: {fileID: 1528997696}
-    - target: {fileID: 7372524778633055680, guid: c5efc39a8aaf6e64ea40e9ad573e9b47,
-        type: 3}
-      propertyPath: shakeTime
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7372524778633055680, guid: c5efc39a8aaf6e64ea40e9ad573e9b47,
-        type: 3}
-      propertyPath: shakeIntensity
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 7903693612927114282, guid: c5efc39a8aaf6e64ea40e9ad573e9b47,
-        type: 3}
-      propertyPath: damage
-      value: 300
-      objectReference: {fileID: 0}
     - target: {fileID: 7903693612927114282, guid: c5efc39a8aaf6e64ea40e9ad573e9b47,
         type: 3}
       propertyPath: ammoText
       value: 
       objectReference: {fileID: 713183217}
-    - target: {fileID: 7903693612927114282, guid: c5efc39a8aaf6e64ea40e9ad573e9b47,
-        type: 3}
-      propertyPath: cameraShake
-      value: 
-      objectReference: {fileID: 185666024}
     - target: {fileID: 7903693612927114282, guid: c5efc39a8aaf6e64ea40e9ad573e9b47,
         type: 3}
       propertyPath: magazineText
