@@ -3413,7 +3413,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9218919145219617182}
   m_Layer: 0
-  m_Name: tutorialMAP
+  m_Name: tutorialMAP_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
