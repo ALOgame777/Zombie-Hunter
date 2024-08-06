@@ -2694,6 +2694,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Zombie
       objectReference: {fileID: 0}
+    - target: {fileID: 7703366500764253259, guid: 03b575e849658bb43b6fadbd22b3b053,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3743,6 +3748,7 @@ SceneRoots:
   - {fileID: 8786931179404141434}
   - {fileID: 179384984}
   - {fileID: 405353426}
+  - {fileID: 1586101044}
   - {fileID: 1132402973}
   - {fileID: 1689194340}
   - {fileID: 1293136472}
@@ -3754,4 +3760,3 @@ SceneRoots:
   - {fileID: 45190389}
   - {fileID: 206827320}
   - {fileID: 6422775808530576458}
-  - {fileID: 1586101044}
