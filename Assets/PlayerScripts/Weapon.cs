@@ -19,6 +19,8 @@ public class Weapon : MonoBehaviour
     public Text magazineText;  // 기존 Text 컴포넌트를 사용
     bool canShoot = true;
     public FPSCameraShake cameraShake;
+    public bool displayAmmo = true; // DisplayAmmo 메서드를 활성화/비활성화하는 플래그
+    public Text reloadText; // 리로드 추가된 부분
 
     public int maxMagazineSize = 30;
     private int currentMagazineAmmo;
@@ -43,13 +45,16 @@ public class Weapon : MonoBehaviour
     {
         canShoot = true;
         DisplayAmmo();
+        reloadText.gameObject.SetActive(false); // 리로드 텍스트 초기 비활성화
     }
 
     void Update()
     {
-        DisplayAmmo();
-
-        if (Input.GetMouseButtonDown(0) && canShoot)
+        if (displayAmmo)
+        {
+            DisplayAmmo();
+        }
+        if (Input.GetMouseButton(0) && canShoot)
         {
             StartCoroutine(Shoot());
         }
@@ -60,7 +65,7 @@ public class Weapon : MonoBehaviour
         }
     }
 
-    private void DisplayAmmo()
+    public void DisplayAmmo()
     {
         int currentAmmo = ammoSlot.GetCurrentAmmo(ammoType);
         ammoText.text = currentAmmo.ToString();
@@ -74,7 +79,7 @@ public class Weapon : MonoBehaviour
         {
             if (cameraShake != null)
             {
-                cameraShake.ShakeCamera();
+                cameraShake.ShakeCamera(20f,.3f);
             }
 
             PlayMuzzleFlash();
@@ -129,7 +134,7 @@ public class Weapon : MonoBehaviour
     IEnumerator Reload()
     {
         canShoot = false;
-        Debug.Log("Reloading...");
+        reloadText.gameObject.SetActive(true); // 리로드 텍스트 활성화
 
         yield return new WaitForSeconds(2.0f); // Assuming reload takes 2 seconds
 
@@ -148,7 +153,7 @@ public class Weapon : MonoBehaviour
         }
 
         canShoot = true;
-        Debug.Log("Reloaded");
+        reloadText.gameObject.SetActive(false); // 리로드 텍스트 비활성화
         DisplayAmmo();
     }
 
