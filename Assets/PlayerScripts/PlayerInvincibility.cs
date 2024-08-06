@@ -4,9 +4,21 @@ using UnityEngine;
 
 public class PlayerInvincibility : MonoBehaviour
 {
+    public static PlayerInvincibility pi;
     public float invincibilityDuration = 2f;
     private bool isInvincible = false;
     private CapsuleCollider[] capsuleColliders; // Array to store CapsuleColliders
+    private void Awake()
+    {
+        if (pi == null)
+        {
+            pi = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
 
     void Start()
     {
@@ -18,6 +30,7 @@ public class PlayerInvincibility : MonoBehaviour
     {
         // 리스폰 시 호출될 메서드
         StartCoroutine(ApplyInvincibility());
+        CharacterStats.cs.setHealthTo(300);
     }
 
     IEnumerator ApplyInvincibility()
@@ -27,6 +40,7 @@ public class PlayerInvincibility : MonoBehaviour
 
         // 자신과 자식 오브젝트에 있는 모든 CapsuleCollider를 가져옴
         capsuleColliders = GetComponentsInChildren<CapsuleCollider>(true);
+
 
         // 모든 CapsuleCollider를 비활성화
         foreach (CapsuleCollider col in capsuleColliders)

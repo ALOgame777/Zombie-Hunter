@@ -5,13 +5,13 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class CharacterStats : MonoBehaviour    
+public class CharacterStats : MonoBehaviour
 {
     public static CharacterStats cs;
     public int health;
     public int maxHealth;
     public Image img_hitUI;
-    public bool isDead;
+    public bool isDead = false;
 
     private void Awake()
     {
@@ -31,14 +31,11 @@ public class CharacterStats : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.T))
-        {
-            TakeDamage(10);
-        }
+
     }
     public virtual void CheckHealth()
     {
-        if(health <= 0)
+        if (health <= 0)
         {
             health = 0;
             Die();
@@ -48,7 +45,7 @@ public class CharacterStats : MonoBehaviour
             health = maxHealth;
         }
     }
-    private void setHealthTo(int healthTosetto)
+    public void setHealthTo(int healthTosetto)
     {
         health = healthTosetto;
         CheckHealth();
@@ -72,11 +69,13 @@ public class CharacterStats : MonoBehaviour
         maxHealth = 300;
         setHealthTo(maxHealth);
         isDead = false;
+        
     }
 
     public void Die()
     {
         isDead = true;
+        PlayerInvincibility.pi.Respawn();
     }
 
     IEnumerator TakeHit(float delayTime)
