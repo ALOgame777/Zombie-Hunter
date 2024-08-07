@@ -9,50 +9,61 @@ public class WayPoint : MonoBehaviour // 큐브를 제어하는 클래스야
     private Vector3 startPosition; // 큐브의 초기 위치를 저장하는 변수야
 
     // 'way' 오브젝트를 배열로 저장
-    public GameObject[] waypoints; // 'way1'~'way20'을 넣는 배열
-    private int currentWaypointIndex = 0; // 현재 활성화된 웨이포인트 인덱스
+    //public GameObject[] waypoints; // 'way1'~'way20'을 넣는 배열
+    //private int currentWaypointIndex = 0; // 현재 활성화된 웨이포인트 인덱스
+    WaypointsManager waypointsManager;
 
     void Start() // 게임이 시작될 때 한 번 실행돼
     {
-        startPosition = transform.position; // 큐브의 처음 위치를 저장해
-        
+        startPosition = transform.GetChild(0).position; // 큐브의 처음 위치를 저장해
+
         // 처음에는 'way1'만 활성화
-        ActivateWaypoint(currentWaypointIndex);
+        //ActivateWaypoint(currentWaypointIndex);
+        waypointsManager = transform.parent.GetComponent<WaypointsManager>();
     }
 
     void Update() // 매 프레임마다 실행돼
     {
-        transform.Rotate(Vector3.up, rotationSpeed * Time.deltaTime); // 큐브를 계속 회전시켜
+        transform.GetChild(0).Rotate(Vector3.up, rotationSpeed * Time.deltaTime); // 큐브를 계속 회전시켜
 
         float newY = startPosition.y + Mathf.Sin(Time.time * moveSpeed) * moveAmount; // 큐브의 새로운 y 위치를 계산해
-        transform.position = new Vector3(transform.position.x, newY, transform.position.z); // 큐브를 새로운 위치로 옮겨
+        transform.GetChild(0).position = new Vector3(transform.GetChild(0).position.x, newY, transform.GetChild(0).position.z); // 큐브를 새로운 위치로 옮겨
     }
-    void OnTriggerEnter(Collider other) // 플레이어가 웨이포인트에 닿을 때 호출됨
-    {
-        if (other.CompareTag("Player")) // 플레이어인지 확인
-        {
-            // 현재 웨이포인트를 비활성화
-            DeactivateWaypoint(currentWaypointIndex);
-            currentWaypointIndex++; // 다음 웨이포인트로 이동
 
-            // 다음 웨이포인트가 있는지 확인
-            if (currentWaypointIndex < waypoints.Length)
-            {
-                ActivateWaypoint(currentWaypointIndex); // 다음 웨이포인트 활성화
-            }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player") && gameObject.activeSelf)
+        {
+            waypointsManager.OnWaypointReached();
         }
     }
-
-    void ActivateWaypoint(int index)
-    {
-        waypoints[index].SetActive(true); // 해당 인덱스의 웨이포인트 활성화
-    }
-
-    void DeactivateWaypoint(int index)
-    {
-        waypoints[index].SetActive(false); // 해당 인덱스의 웨이포인트 비활성화
-    }
 }
+//    public void OnTriggerEnter(Collider other) // 플레이어가 웨이포인트에 닿을 때 호출됨
+//    {
+//        if (other.CompareTag("Player")) // 플레이어인지 확인
+//        {
+//            // 현재 웨이포인트를 비활성화
+//            DeactivateWaypoint(currentWaypointIndex);
+//            currentWaypointIndex++; // 다음 웨이포인트로 이동
+
+//            // 다음 웨이포인트가 있는지 확인
+//            if (currentWaypointIndex < waypoints.Length)
+//            {
+//                ActivateWaypoint(currentWaypointIndex); // 다음 웨이포인트 활성화
+//            }
+//        }
+//    }
+
+//    void ActivateWaypoint(int index)
+//    {
+//        waypoints[index].SetActive(true); // 해당 인덱스의 웨이포인트 활성화
+//    }
+
+//    void DeactivateWaypoint(int index)
+//    {
+//        waypoints[index].SetActive(false); // 해당 인덱스의 웨이포인트 비활성화
+//    }
+//}
 
 
 //// 웨이포인트 회전 잘 함ㅋ

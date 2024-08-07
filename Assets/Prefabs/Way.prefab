@@ -360,7 +360,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2591983971264319542}
-  - component: {fileID: 8649600191973117825}
   m_Layer: 0
   m_Name: WayPoint
   m_TagString: Untagged
@@ -387,22 +386,6 @@ Transform:
   - {fileID: 2921446016928387573}
   m_Father: {fileID: 8802906459703510428}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8649600191973117825
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7811878531060691470}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3602db151a8658e489c90ff295daf7bc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rotationSpeed: 50
-  moveSpeed: 1
-  moveAmount: 0.5
-  waypoints: []
 --- !u!1 &7833792012551054100
 GameObject:
   m_ObjectHideFlags: 0

@@ -40,7 +40,6 @@ public class PlayerInvincibility : MonoBehaviour
     IEnumerator ApplyInvincibility()
     {
         isInvincible = true;
-        Debug.Log("무적 상태 시작");
         capsuleColliders = GetComponentsInChildren<CapsuleCollider>(true);
         foreach (CapsuleCollider col in capsuleColliders)
         {
@@ -57,7 +56,6 @@ public class PlayerInvincibility : MonoBehaviour
         }
 
         isInvincible = false;
-        Debug.Log("무적 상태 종료");
         foreach (CapsuleCollider col in capsuleColliders)
         {
             col.enabled = true;
