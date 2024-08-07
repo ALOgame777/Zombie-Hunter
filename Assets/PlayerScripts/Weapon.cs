@@ -61,7 +61,13 @@ public class Weapon : MonoBehaviour
     IEnumerator Shoot()
     {
         canShoot = false;
-
+        if(ammoType == AmmoType.Rockets)
+        {
+            PlayMuzzleFlash();
+            ProcessRayCast();
+            currentMagazineAmmo--;
+            ammoText.text = "0";
+        }
         if (currentMagazineAmmo > 0)
         {
             PlayMuzzleFlash();
@@ -125,7 +131,7 @@ public class Weapon : MonoBehaviour
         int ammoNeeded = maxMagazineSize - currentMagazineAmmo;
         int currentAmmo = ammoSlot.GetCurrentAmmo(ammoType);
 
-        if (currentAmmo >= ammoNeeded)
+        if (currentAmmo > ammoNeeded)
         {
             ammoSlot.ReduceCurrentAmmo(ammoType, ammoNeeded);
             currentMagazineAmmo = maxMagazineSize;
