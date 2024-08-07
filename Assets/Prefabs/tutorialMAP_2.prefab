@@ -12121,8 +12121,37 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 4489716931160460821}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8548259178744198091, guid: e80b485d71142aa4c914da200dceeb3a,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8300973207546605007}
   m_SourcePrefab: {fileID: 100100000, guid: e80b485d71142aa4c914da200dceeb3a, type: 3}
+--- !u!1 &6077986552279929648 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8548259178744198091, guid: e80b485d71142aa4c914da200dceeb3a,
+    type: 3}
+  m_PrefabInstance: {fileID: 2520006982027059451}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8300973207546605007
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6077986552279929648}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2cafa8b8197d10488b506615ba70418, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ButtonUI: {fileID: 0}
+  DOOR: {fileID: 6077986552279929648}
+  BuyDoubleShot: {fileID: 0}
+  Imiboyouzong: {fileID: 0}
+  showDistance: 3
+  ScoreManager: {fileID: 0}
+  UIManager: {fileID: 0}
 --- !u!4 &9126966331902797787 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6652277869139330848, guid: e80b485d71142aa4c914da200dceeb3a,
