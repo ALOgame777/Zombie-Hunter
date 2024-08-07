@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -18,27 +17,15 @@ public class Weapon : MonoBehaviour
     public Text ammoText;
     public Text magazineText;  // 기존 Text 컴포넌트를 사용
     bool canShoot = true;
-    public FPSCameraShake cameraShake;
     public bool displayAmmo = true; // DisplayAmmo 메서드를 활성화/비활성화하는 플래그
     public Text reloadText; // 리로드 추가된 부분
+    public WeaponRecoil recoil;
 
     public int maxMagazineSize = 30;
     private int currentMagazineAmmo;
-
     private void Awake()
     {
-        // If FPSCameraShake is attached to the same GameObject
-        cameraShake = GetComponent<FPSCameraShake>();
-
-        // If FPSCameraShake is attached to the Camera or another GameObject
-        if (cameraShake == null)
-        {
-            cameraShake = FindObjectOfType<FPSCameraShake>();
-            if (cameraShake == null)
-            {
-                Debug.LogError("FPSCameraShake script is not found in the scene. Please attach the script to a GameObject.");
-            }
-        }
+        recoil = GetComponent<WeaponRecoil>();
         currentMagazineAmmo = maxMagazineSize;
     }
     private void OnEnable()
@@ -69,7 +56,7 @@ public class Weapon : MonoBehaviour
     {
         int currentAmmo = ammoSlot.GetCurrentAmmo(ammoType);
         ammoText.text = currentAmmo.ToString();
-        magazineText.text = currentMagazineAmmo.ToString(); // 탄창의 남은 탄약을 표시
+        magazineText.text = currentMagazineAmmo.ToString();  // 현재 장전된 탄약 수
     }
     IEnumerator Shoot()
     {
@@ -77,14 +64,11 @@ public class Weapon : MonoBehaviour
 
         if (currentMagazineAmmo > 0)
         {
-            if (cameraShake != null)
-            {
-                cameraShake.ShakeCamera(20f,.3f);
-            }
-
             PlayMuzzleFlash();
             ProcessRayCast();
+            recoil.Recoil();
             currentMagazineAmmo--;
+
         }
         else
         {
@@ -134,9 +118,9 @@ public class Weapon : MonoBehaviour
     IEnumerator Reload()
     {
         canShoot = false;
-        reloadText.gameObject.SetActive(true); // 리로드 텍스트 활성화
+        reloadText.gameObject.SetActive(true);
 
-        yield return new WaitForSeconds(2.0f); // Assuming reload takes 2 seconds
+        yield return new WaitForSeconds(2.0f);
 
         int ammoNeeded = maxMagazineSize - currentMagazineAmmo;
         int currentAmmo = ammoSlot.GetCurrentAmmo(ammoType);
@@ -153,10 +137,9 @@ public class Weapon : MonoBehaviour
         }
 
         canShoot = true;
-        reloadText.gameObject.SetActive(false); // 리로드 텍스트 비활성화
+        reloadText.gameObject.SetActive(false);
         DisplayAmmo();
     }
-
     private void CreateHitImpact(RaycastHit hit)
     {
         GameObject impact = Instantiate(hitEffet, hit.point, Quaternion.LookRotation(hit.normal));
