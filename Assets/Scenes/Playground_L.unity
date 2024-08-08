@@ -1024,6 +1024,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1171639889 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 646343338222112905, guid: c64156589cbfcfe4cb766414e6498285,
+    type: 3}
+  m_PrefabInstance: {fileID: 6022848638100084790}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1231972489
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1639,6 +1651,21 @@ PrefabInstance:
       propertyPath: ammoSlots.Array.data[2].ammoAmount
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4353874265501745388, guid: c5efc39a8aaf6e64ea40e9ad573e9b47,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.20000005
+      objectReference: {fileID: 0}
+    - target: {fileID: 4353874265501745388, guid: c5efc39a8aaf6e64ea40e9ad573e9b47,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.267
+      objectReference: {fileID: 0}
+    - target: {fileID: 4353874265501745388, guid: c5efc39a8aaf6e64ea40e9ad573e9b47,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.191
+      objectReference: {fileID: 0}
     - target: {fileID: 5517871986166514788, guid: c5efc39a8aaf6e64ea40e9ad573e9b47,
         type: 3}
       propertyPath: lengthInSec
@@ -1960,6 +1987,11 @@ PrefabInstance:
       propertyPath: scoreText
       value: 
       objectReference: {fileID: 579809170}
+    - target: {fileID: 7916729355812216025, guid: 6223cf650ad4608418c497047cf77d28,
+        type: 3}
+      propertyPath: storeText
+      value: 
+      objectReference: {fileID: 1171639889}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

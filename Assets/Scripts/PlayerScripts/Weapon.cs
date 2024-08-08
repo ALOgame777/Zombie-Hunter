@@ -82,7 +82,7 @@ public class Weapon : MonoBehaviour
             }
             else
             {
-                Debug.Log("No ammo in magazine");
+                StartCoroutine(Reload());
             }
 
             yield return new WaitForSeconds(timeBetweenShots);
