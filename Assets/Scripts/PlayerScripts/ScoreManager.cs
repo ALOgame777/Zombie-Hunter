@@ -97,17 +97,31 @@ public class ScoreManager : MonoBehaviour
             money -= requiredMoney3;
             UIManager.Instance.UpdateMoneyText(money);
 
-            Debug.Log($"문이 열렸습니다! 남은 돈: {money}");
-            return true; // 문이 열리는 상태로 변경
+            
+            return true;
         }
         else
         {
-            Debug.Log("돈이 부족합니다. 문을 열 수 없습니다.");
+           
             return false;
         }
     }
 
-
+    public bool UpgradeWeapon(int requiredMoney5 = 2000)
+    {
+        Debug.Log($" 업그레이드 구매 시도: 필요 금액 = {requiredMoney5}, 현재 돈 = {money}");
+        if (money >= requiredMoney5)
+        {
+            money -= requiredMoney5;
+            UIManager.Instance.UpdateMoneyText(money);
+            return true;
+        }
+        else
+        {
+            
+            return false;
+        }
+    }
 }
 
 

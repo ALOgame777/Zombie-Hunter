@@ -1997,6 +1997,11 @@ PrefabInstance:
       objectReference: {fileID: 1241190536}
     - target: {fileID: 7903693612927114282, guid: c5efc39a8aaf6e64ea40e9ad573e9b47,
         type: 3}
+      propertyPath: damage
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 7903693612927114282, guid: c5efc39a8aaf6e64ea40e9ad573e9b47,
+        type: 3}
       propertyPath: ammoText
       value: 
       objectReference: {fileID: 1370440874}
