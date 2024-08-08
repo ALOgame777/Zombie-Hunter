@@ -181,7 +181,7 @@ public class BOSS : MonoBehaviour
     IEnumerator DamageProcess()
     {
         // 피격 모션 시간만큼 기다린다.
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.01f);
 
         // 현재 상태를 이동 상태로 전환
         m_state = BossState.Move;
