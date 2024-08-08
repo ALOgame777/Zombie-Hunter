@@ -875,6 +875,7 @@ MonoBehaviour:
   displayAmmo: 1
   reloadText: {fileID: 0}
   recoil: {fileID: 0}
+  fireCount: 1
   maxMagazineSize: 1
 --- !u!114 &4646108517990090222
 MonoBehaviour:
@@ -1673,6 +1674,7 @@ MonoBehaviour:
   displayAmmo: 1
   reloadText: {fileID: 0}
   recoil: {fileID: 4672202432073732450}
+  fireCount: 1
   maxMagazineSize: 30
 --- !u!114 &4667233094131817317
 MonoBehaviour:
@@ -1837,6 +1839,7 @@ MonoBehaviour:
   displayAmmo: 1
   reloadText: {fileID: 0}
   recoil: {fileID: 4300947590265601648}
+  fireCount: 1
   maxMagazineSize: 20
 --- !u!114 &3838733186383735580
 MonoBehaviour:

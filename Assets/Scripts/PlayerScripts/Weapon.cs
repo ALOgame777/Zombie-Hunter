@@ -22,7 +22,8 @@ public class Weapon : MonoBehaviour
     public WeaponRecoil recoil;
 
     public int fireCount = 1;
-
+    
+    
     public int maxMagazineSize = 30;
     private int currentMagazineAmmo;
     private void Awake()
@@ -155,5 +156,11 @@ public class Weapon : MonoBehaviour
     {
         GameObject impact = Instantiate(hitEffet, hit.point, Quaternion.LookRotation(hit.normal));
         Destroy(impact, 4);
+    }
+
+    public void IncreaseAttackPower(int percentage)
+    {
+        // 공격력 증가 후 소수점 이하를 버림 (정수형으로 처리)
+        damage = Mathf.FloorToInt(damage * (1 + percentage / 100.0f));
     }
 }
