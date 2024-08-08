@@ -16,7 +16,7 @@ public class UPGRADE : MonoBehaviour
 
     //public ScoreManager ScoreManager;
     //public UIManager UIManager;
-
+    private bool hasPurchased = false; // 구매 여부 확인
 
 
     void Start()
@@ -42,17 +42,23 @@ public class UPGRADE : MonoBehaviour
 
             if (distance <= showDistance)
             {
-                third.SetActive(true);
-                ShowSlider(UPGRADEcanvas);
-                if (Input.GetKeyDown(KeyCode.E))
+                if (!hasPurchased)
                 {
-                    UpgrdeWeapon();
-                    HideSlider(UPGRADEcanvas);
+                    third.SetActive(true);
+                    ShowSlider(UPGRADEcanvas);
+                    if (Input.GetKeyDown(KeyCode.E))
+                    {
+                        UpgrdeWeapon();
+                        HideSlider(UPGRADEcanvas);
+                        hasPurchased = true;
+                    }
                 }
+               
             }
             else
             {
                 HideSlider(UPGRADEcanvas);
+               
             }
         }
     }

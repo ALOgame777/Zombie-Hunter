@@ -63,12 +63,13 @@ public class EnemyFSM : MonoBehaviour
     public float gravity = -9.81f;
 
     public float patrolSpeed = 4;
-
+    public Animator zomani;
     void Start()
     {
         // 최초의 에너미  상태는 대기(Idle)로 한다.
         m_state = EnemyState.Idle;
 
+        zomani = GetComponent<Animator>();
         // 플레이어의 트랜스폼 컴포넌트 받아오기
         player = GameObject.Find("PlayerCapsule").transform;
 
@@ -210,6 +211,8 @@ public class EnemyFSM : MonoBehaviour
 
     void Idle()
     {
+        //zomani.SetBool("Run", false);
+        //zomani.SetBool("Attack", false);
         // 만일, 플레이어와의 거리가 액션 시작 범위 이내라면 Move 상태로 전환한다.
         if (Vector3.Distance(transform.position, player.position) < findDistance)
         {
@@ -220,6 +223,8 @@ public class EnemyFSM : MonoBehaviour
 
     void Move()
     {
+        //zomani.SetBool("Run", true);
+        //zomani.SetBool("Attack", false);
         // 만일 현재 위치가 초기 위치에서 이동 가능 범위를 넘어간다면
         if (Vector3.Distance(transform.position, orginPos) > moveDistance)
         {
@@ -238,6 +243,7 @@ public class EnemyFSM : MonoBehaviour
             // y 축 이동 제거
             dir.y = 0;
 
+
             // 캐릭터 컨트롤러를 이용해 이동하기
             //cc.Move(dir * moveSpeed * Time.deltaTime);
 
@@ -248,6 +254,8 @@ public class EnemyFSM : MonoBehaviour
 
                 // 이동하려는 방향으로 회전한다.
                 transform.rotation = Quaternion.LookRotation(dir.normalized);
+
+                
             }
 
             // 중력 적용
@@ -268,6 +276,7 @@ public class EnemyFSM : MonoBehaviour
         else
         {
             m_state = EnemyState.Attack;
+            
             print("상태 전환 : Move -> Attack");
 
             // 누적 시간을 공격 딜레이 시간 만큼 미리 진행시켜 놓는다.
@@ -276,6 +285,8 @@ public class EnemyFSM : MonoBehaviour
     }
     void Attack()
     {
+        //zomani.SetBool("Run", false);
+        //zomani.SetBool("Attack", true);
         //만일 플레이어가 공격 범위 이내에 있다면 플레이어를 공격한다.
         if (Vector3.Distance(transform.position, player.position) < attackDistance)
         {
@@ -314,6 +325,7 @@ public class EnemyFSM : MonoBehaviour
     // 죽음 상태 함수
     void Die()
     {
+        //zomani.SetBool("Death", true);
         // 진행 중인 피격 코루틴을 중지
         StopAllCoroutines();
         Debug.Log("적 사망 전 점수: " + ScoreManager.Instance.GetScore());

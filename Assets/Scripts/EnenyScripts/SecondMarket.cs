@@ -10,21 +10,22 @@ public class SecondMarket : MonoBehaviour
     public Button Enter; // 보급품 들어가기 버튼
     public GameObject StoreUI;
     public GameObject supply;
-
+    public GameObject BUYCON;
 
     public float showDistance = 3.0f; // 버튼이 보이는 거리
     private Transform playerposition; // 플레이어 위치 추적
     private CanvasGroup SecondMarketCanvas; // 2번째 자판기의 CanvasGroup
-   
+
 
     //public ScoreManager ScoreManager;
     //public UIManager UIManager;
 
-  
+    private bool hasPurchased = false; // 구매 여부 확인
 
     void Start()
     {
         StoreUI.gameObject.SetActive(false);
+        BUYCON.gameObject.SetActive(false);
         // 각각의 버튼에서 CanvasGroup 컴포넌트 찾기
         SecondMarketCanvas = Enter.GetComponent<CanvasGroup>();
        
@@ -45,17 +46,22 @@ public class SecondMarket : MonoBehaviour
 
             if (distance <= showDistance)
             {
-                ShowSlider(SecondMarketCanvas);
-                if (Input.GetKeyDown(KeyCode.E))
+                if (!hasPurchased)
                 {
-                    if (!StoreUI.activeInHierarchy)
+                    ShowSlider(SecondMarketCanvas);
+                    if (Input.GetKeyDown(KeyCode.E))
                     {
-                        StoreUI.SetActive(true);
-                        supply.SetActive(false);
-                    }
-                    else
-                    {
-                        Buythis();
+                        if (!StoreUI.activeInHierarchy)
+                        {
+                            StoreUI.SetActive(true);
+                            supply.SetActive(false);
+
+                        }
+                        else
+                        {
+                            Buythis();
+                            hasPurchased = true;
+                        }
                     }
                 }
             }
@@ -64,6 +70,7 @@ public class SecondMarket : MonoBehaviour
                 // 거리가 멀어지면 모든 슬라이더 숨기기
                 HideSlider(SecondMarketCanvas);
                 StoreUI.SetActive(false);
+                BUYCON.gameObject.SetActive(false);
             }
         }
     }
@@ -85,7 +92,8 @@ public class SecondMarket : MonoBehaviour
     {
         if (ScoreManager.Instance.BuyAK(3000))
         {
-            Debug.Log("구매 완료");
+            BUYCON.SetActive(true);
+            //Debug.Log("구매 완료");
             //Debug.Log("적 사망 전 점수: " + ScoreManager.Instance.GetScore());
             //Debug.Log("적 사망 후 점수: " + ScoreManager.Instance.GetScore());
         }

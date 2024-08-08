@@ -1717,6 +1717,12 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 0
+--- !u!1 &1135701565 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5027149261813645637, guid: c64156589cbfcfe4cb766414e6498285,
+    type: 3}
+  m_PrefabInstance: {fileID: 1241190531}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1241190531
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2620,6 +2626,7 @@ MonoBehaviour:
   Enter: {fileID: 0}
   StoreUI: {fileID: 248588243}
   supply: {fileID: 0}
+  BUYCON: {fileID: 1135701565}
   showDistance: 3
 --- !u!1 &1513312938
 GameObject:
