@@ -21,6 +21,8 @@ public class Weapon : MonoBehaviour
     public Text reloadText; // 리로드 추가된 부분
     public WeaponRecoil recoil;
 
+    public int fireCount = 1;
+
     public int maxMagazineSize = 30;
     private int currentMagazineAmmo;
     private void Awake()
@@ -60,29 +62,32 @@ public class Weapon : MonoBehaviour
     }
     IEnumerator Shoot()
     {
-        canShoot = false;
-        if(ammoType == AmmoType.Rockets)
+        for (int i = 0; i < fireCount; i++)
         {
-            PlayMuzzleFlash();
-            ProcessRayCast();
-            currentMagazineAmmo--;
-            ammoText.text = "0";
-        }
-        if (currentMagazineAmmo > 0)
-        {
-            PlayMuzzleFlash();
-            ProcessRayCast();
-            recoil.Recoil();
-            currentMagazineAmmo--;
+            canShoot = false;
+            if (ammoType == AmmoType.Rockets)
+            {
+                PlayMuzzleFlash();
+                ProcessRayCast();
+                currentMagazineAmmo--;
+                ammoText.text = "0";
+            }
+            if (currentMagazineAmmo > 0)
+            {
+                PlayMuzzleFlash();
+                ProcessRayCast();
+                recoil.Recoil();
+                currentMagazineAmmo--;
 
-        }
-        else
-        {
-            Debug.Log("No ammo in magazine");
-        }
+            }
+            else
+            {
+                Debug.Log("No ammo in magazine");
+            }
 
-        yield return new WaitForSeconds(timeBetweenShots);
-        canShoot = true;
+            yield return new WaitForSeconds(timeBetweenShots);
+            canShoot = true;
+        }
     }
 
     private void PlayMuzzleFlash()

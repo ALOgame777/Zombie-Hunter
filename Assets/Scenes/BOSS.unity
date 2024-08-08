@@ -307,6 +307,11 @@ PrefabInstance:
       propertyPath: scoreText
       value: 
       objectReference: {fileID: 1241190535}
+    - target: {fileID: 7916729355812216025, guid: 6223cf650ad4608418c497047cf77d28,
+        type: 3}
+      propertyPath: storeText
+      value: 
+      objectReference: {fileID: 1241190535}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -640,6 +645,12 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &248588243 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5415825494989401745, guid: c64156589cbfcfe4cb766414e6498285,
+    type: 3}
+  m_PrefabInstance: {fileID: 1241190531}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &298485079
 GameObject:
   m_ObjectHideFlags: 0
@@ -1712,6 +1723,11 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5415825494989401745, guid: c64156589cbfcfe4cb766414e6498285,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8061774457036554181, guid: c64156589cbfcfe4cb766414e6498285,
         type: 3}
       propertyPath: m_Pivot.x
@@ -1932,6 +1948,26 @@ PrefabInstance:
       propertyPath: magazineText
       value: 
       objectReference: {fileID: 1362108854}
+    - target: {fileID: 4353874265501745388, guid: c5efc39a8aaf6e64ea40e9ad573e9b47,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.19999993
+      objectReference: {fileID: 0}
+    - target: {fileID: 4353874265501745388, guid: c5efc39a8aaf6e64ea40e9ad573e9b47,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.267
+      objectReference: {fileID: 0}
+    - target: {fileID: 4353874265501745388, guid: c5efc39a8aaf6e64ea40e9ad573e9b47,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.19100013
+      objectReference: {fileID: 0}
+    - target: {fileID: 4353874265501745388, guid: c5efc39a8aaf6e64ea40e9ad573e9b47,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6248892602986480094, guid: c5efc39a8aaf6e64ea40e9ad573e9b47,
         type: 3}
       propertyPath: maxHealthText
@@ -2035,6 +2071,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 561287114}
     m_Modifications:
+    - target: {fileID: 626522547629419322, guid: 0f3a864c7d5714f4e9c4de6175fde8df,
+        type: 3}
+      propertyPath: m_Name
+      value: ShellAmmo
+      objectReference: {fileID: 0}
     - target: {fileID: 4500731511083908141, guid: 0f3a864c7d5714f4e9c4de6175fde8df,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2129,6 +2170,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalRotation.z
       value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6883054617910945073, guid: 0f3a864c7d5714f4e9c4de6175fde8df,
+        type: 3}
+      propertyPath: ammoType
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7333845208892017060, guid: 0f3a864c7d5714f4e9c4de6175fde8df,
         type: 3}
@@ -2277,6 +2323,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 561287114}
     m_Modifications:
+    - target: {fileID: 626522547629419322, guid: 0f3a864c7d5714f4e9c4de6175fde8df,
+        type: 3}
+      propertyPath: m_Name
+      value: BulletAmmo
+      objectReference: {fileID: 0}
     - target: {fileID: 4500731511083908141, guid: 0f3a864c7d5714f4e9c4de6175fde8df,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2345,7 +2396,7 @@ PrefabInstance:
     - target: {fileID: 4734515294908859881, guid: 0f3a864c7d5714f4e9c4de6175fde8df,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -36.546394
+      value: -10.09
       objectReference: {fileID: 0}
     - target: {fileID: 4734515294908859881, guid: 0f3a864c7d5714f4e9c4de6175fde8df,
         type: 3}
@@ -2355,7 +2406,7 @@ PrefabInstance:
     - target: {fileID: 4734515294908859881, guid: 0f3a864c7d5714f4e9c4de6175fde8df,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -14.346988
+      value: -36.78
       objectReference: {fileID: 0}
     - target: {fileID: 4734515294908859881, guid: 0f3a864c7d5714f4e9c4de6175fde8df,
         type: 3}
@@ -2496,6 +2547,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1499818095}
+  - component: {fileID: 1499818096}
   m_Layer: 0
   m_Name: WALL
   m_TagString: Untagged
@@ -2534,6 +2586,24 @@ Transform:
   - {fileID: 2142402390}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1499818096
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1499818094}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f8dda8a5db735946bcf78aa37f5ceb7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ButtonUI: {fileID: 0}
+  DOOR: {fileID: 0}
+  Enter: {fileID: 0}
+  StoreUI: {fileID: 248588243}
+  supply: {fileID: 0}
+  showDistance: 3
 --- !u!1 &1513312938
 GameObject:
   m_ObjectHideFlags: 0
@@ -2726,6 +2796,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 561287114}
     m_Modifications:
+    - target: {fileID: 626522547629419322, guid: 0f3a864c7d5714f4e9c4de6175fde8df,
+        type: 3}
+      propertyPath: m_Name
+      value: RocketAmmo
+      objectReference: {fileID: 0}
     - target: {fileID: 4500731511083908141, guid: 0f3a864c7d5714f4e9c4de6175fde8df,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2794,7 +2869,7 @@ PrefabInstance:
     - target: {fileID: 4734515294908859881, guid: 0f3a864c7d5714f4e9c4de6175fde8df,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -8.126394
+      value: 8.57
       objectReference: {fileID: 0}
     - target: {fileID: 4734515294908859881, guid: 0f3a864c7d5714f4e9c4de6175fde8df,
         type: 3}
@@ -2820,6 +2895,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalRotation.z
       value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6883054617910945073, guid: 0f3a864c7d5714f4e9c4de6175fde8df,
+        type: 3}
+      propertyPath: ammoType
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7333845208892017060, guid: 0f3a864c7d5714f4e9c4de6175fde8df,
         type: 3}

@@ -8,31 +8,32 @@ public class SecondMarket : MonoBehaviour
     public GameObject ButtonUI;
     public GameObject DOOR;
     public Button Enter; // 보급품 들어가기 버튼
-    public Button Imiboyouzong; // 이미 보유중 표시
+    public GameObject StoreUI;
+    public GameObject supply;
+
+
     public float showDistance = 3.0f; // 버튼이 보이는 거리
     private Transform playerposition; // 플레이어 위치 추적
-    private CanvasGroup buyDoubleShotCanvasGroup; // BuyDoubleShot의 CanvasGroup
-    private CanvasGroup imiboyouzongCanvasGroup; // Imiboyouzong의 CanvasGroup
+    private CanvasGroup SecondMarketCanvas; // 2번째 자판기의 CanvasGroup
+   
 
-    public ScoreManager ScoreManager;
-    public UIManager UIManager;
+    //public ScoreManager ScoreManager;
+    //public UIManager UIManager;
 
-    private bool hasPurchased = false; // 구매 여부 확인
+  
 
     void Start()
     {
+        StoreUI.gameObject.SetActive(false);
         // 각각의 버튼에서 CanvasGroup 컴포넌트 찾기
-        buyDoubleShotCanvasGroup = Enter.GetComponent<CanvasGroup>();
-        imiboyouzongCanvasGroup = Imiboyouzong.GetComponent<CanvasGroup>();
+        SecondMarketCanvas = Enter.GetComponent<CanvasGroup>();
+       
 
         GameObject player = GameObject.FindGameObjectWithTag("Player"); // 플레이어를 찾아서 플레이어 트랜스폼에 저장
         if (player != null)
         {
             playerposition = player.transform;
         }
-
-        // 초기에는 Imiboyouzong 버튼을 숨김
-        Imiboyouzong.gameObject.SetActive(false);
     }
 
     void Update()
@@ -44,34 +45,29 @@ public class SecondMarket : MonoBehaviour
 
             if (distance <= showDistance)
             {
-                if (hasPurchased)
+                ShowSlider(SecondMarketCanvas);
+                if(StoreUI.activeInHierarchy)
                 {
-                    if (Input.GetKeyDown(KeyCode.E))
-                    {
-                        // 이미 구매한 경우 Imiboyouzong 버튼 보여주기
-                        ShowSlider(imiboyouzongCanvasGroup);
-                    }
-                }
-                else
-                {
-                    // 구매하지 않은 경우 BuyDoubleShot 버튼 보여주기
-                    ShowSlider(buyDoubleShotCanvasGroup);
+                    supply.SetActive(false);
 
-                    // 'E' 키를 누르면 구매 함
+                }
+
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    StoreUI.SetActive(true);
+                    
                     if (Input.GetKeyDown(KeyCode.E))
                     {
-                        DoubleShoot();
-                       
-                        Imiboyouzong.gameObject.SetActive(true);
-                        hasPurchased = true;
+                        Buythis();
                     }
+
                 }
             }
             else
             {
                 // 거리가 멀어지면 모든 슬라이더 숨기기
-                HideSlider(buyDoubleShotCanvasGroup);
-                HideSlider(imiboyouzongCanvasGroup);
+                HideSlider(SecondMarketCanvas);
+                StoreUI.SetActive(false);
             }
         }
     }
@@ -89,13 +85,14 @@ public class SecondMarket : MonoBehaviour
         canvasGroup.interactable = false;
         canvasGroup.blocksRaycasts = false;
     }
-
-    public void DoubleShoot()
+    public void Buythis()
     {
-        if (ScoreManager.Instance.BuyDoubleShoot(2000))
+        if (ScoreManager.Instance.BuyAK(3000))
         {
-            Debug.Log("적 사망 전 점수: " + ScoreManager.Instance.GetScore());
-            Debug.Log("적 사망 후 점수: " + ScoreManager.Instance.GetScore());
+            Debug.Log("구매 완료");
+            //Debug.Log("적 사망 전 점수: " + ScoreManager.Instance.GetScore());
+            //Debug.Log("적 사망 후 점수: " + ScoreManager.Instance.GetScore());
         }
     }
+
 }

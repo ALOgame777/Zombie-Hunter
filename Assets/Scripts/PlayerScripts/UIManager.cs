@@ -9,6 +9,7 @@ public class UIManager : MonoBehaviour
 
     public Text scoreText;
     public Text moneyText;
+    public Text storeText;
 
     private void Awake()
     {
@@ -29,5 +30,6 @@ public class UIManager : MonoBehaviour
     public void UpdateMoneyText(int money)
     {
         moneyText.text = $"µ·: {money}¿ø";
+        storeText.text = $" {money}¿ø";
     }
 }

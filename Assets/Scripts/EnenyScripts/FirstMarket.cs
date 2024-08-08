@@ -13,6 +13,7 @@ public class FirstMarket : MonoBehaviour
     private Transform playerposition; // 플레이어 위치 추적
     private CanvasGroup buyDoubleShotCanvasGroup; // BuyDoubleShot의 CanvasGroup
     private CanvasGroup imiboyouzongCanvasGroup; // Imiboyouzong의 CanvasGroup
+    public Weapon FirstGun;
 
     public ScoreManager ScoreManager;
     public UIManager UIManager;
@@ -94,8 +95,9 @@ public class FirstMarket : MonoBehaviour
     {
         if (ScoreManager.Instance.BuyDoubleShoot(2000))
         {
-            Debug.Log("적 사망 전 점수: " + ScoreManager.Instance.GetScore());
-            Debug.Log("적 사망 후 점수: " + ScoreManager.Instance.GetScore());
+            FirstGun.fireCount = 2;
+            //Debug.Log("적 사망 전 점수: " + ScoreManager.Instance.GetScore());
+            //Debug.Log("적 사망 후 점수: " + ScoreManager.Instance.GetScore());
         }
     }
 }
