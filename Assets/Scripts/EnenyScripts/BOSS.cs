@@ -100,7 +100,7 @@ public class BOSS : MonoBehaviour
         vid.loopPointReached += OnVideoEnd;
 
         //체력 UI
-        hpSlider.value = hp / 50000;
+        hpSlider.value = hp / 50000.0f;
     }
 
     void Update()
@@ -163,7 +163,13 @@ public class BOSS : MonoBehaviour
 
         // 플레이어의 공격력 만큼 에너미 체력을 감소
         hp -= hitPower;
+        
+        //체력 UI
+        hpSlider.value = hp / 50000.0f;
+
+        // 공격시 흰색으로 데미지 표시
         DamagePopUpGenerator.current.CreatePopUp(transform.position, hitPower.ToString(), Color.white);
+        //점수 상승
         ScoreManager.Instance.AddScore(10000);
         // 에너미의 체력이 0보다 크면 피격 상태로 전환
         if (hp > 0)
