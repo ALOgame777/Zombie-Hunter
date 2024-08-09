@@ -1663,7 +1663,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FPCamera: {fileID: 4353874265501745387}
   range: 1000
-  damage: 10000
+  damage: 150
   muzzle: {fileID: 5691692563536502186}
   hitEffet: {fileID: 100006, guid: 4575df893a6e3f64a8283dee38413a34, type: 3}
   ammoSlot: {fileID: 4191767969934078374}
