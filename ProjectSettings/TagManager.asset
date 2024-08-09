@@ -6,6 +6,10 @@ TagManager:
   tags:
   - CinemachineTarget
   - Box
+  - FxTemporaire
+  - Carbine
+  - AK47
+  - RPG
   layers:
   - Default
   - TransparentFX

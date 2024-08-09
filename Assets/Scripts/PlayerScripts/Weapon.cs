@@ -26,8 +26,18 @@ public class Weapon : MonoBehaviour
     
     public int maxMagazineSize = 30;
     private int currentMagazineAmmo;
+    public AudioClip CarbineshootSound;
+    public AudioClip CarbinereloadAudio;
+    public AudioClip AK47shootSound;
+    public AudioClip AK47reloadAudio;
+    public AudioClip RPG7shootSound;
+    public AudioClip RPG7reloadAudio;
+
+
+    private AudioSource audioSource;
     private void Awake()
     {
+        audioSource = GetComponent<AudioSource>();
         recoil = GetComponent<WeaponRecoil>();
         currentMagazineAmmo = maxMagazineSize;
     }
@@ -47,6 +57,7 @@ public class Weapon : MonoBehaviour
         if (Input.GetMouseButton(0) && canShoot)
         {
             StartCoroutine(Shoot());
+            
         }
 
         if (Input.GetKeyDown(KeyCode.R) && canShoot)
@@ -72,6 +83,11 @@ public class Weapon : MonoBehaviour
                 ProcessRayCast();
                 currentMagazineAmmo--;
                 ammoText.text = "0";
+                if (CompareTag("RPG"))
+                {
+                    audioSource.clip = RPG7shootSound;
+                    audioSource.Play();
+                }
             }
             if (currentMagazineAmmo > 0)
             {
@@ -79,11 +95,22 @@ public class Weapon : MonoBehaviour
                 ProcessRayCast();
                 recoil.Recoil();
                 currentMagazineAmmo--;
-
+                if (CompareTag("Carbine"))
+                {
+                    audioSource.clip = CarbineshootSound;
+                    audioSource.Play();
+                }
+                if(CompareTag("AK47"))
+                {
+                    audioSource.clip = AK47shootSound;
+                    audioSource.Play();
+                }
+                
             }
             else
             {
                 StartCoroutine(Reload());
+
             }
 
             yield return new WaitForSeconds(timeBetweenShots);
@@ -150,7 +177,23 @@ public class Weapon : MonoBehaviour
 
         canShoot = true;
         reloadText.gameObject.SetActive(false);
+        if (CompareTag("Carbine"))
+        {
+            audioSource.clip = CarbinereloadAudio;
+            audioSource.Play();
+        }
+        if(CompareTag("AK47"))
+        {
+            audioSource.clip = AK47reloadAudio;
+            audioSource.Play();
+        }
+        if (CompareTag("RPG"))
+        {
+            audioSource.clip = RPG7reloadAudio;
+            audioSource.Play();
+        }
         DisplayAmmo();
+        
     }
     private void CreateHitImpact(RaycastHit hit)
     {
