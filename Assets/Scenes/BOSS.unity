@@ -1925,6 +1925,12 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1241190531}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1239605204 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1663189444979200867, guid: c64156589cbfcfe4cb766414e6498285,
+    type: 3}
+  m_PrefabInstance: {fileID: 1241190531}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1241190531
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2168,6 +2174,11 @@ PrefabInstance:
       propertyPath: magazineText
       value: 
       objectReference: {fileID: 1362108854}
+    - target: {fileID: 4353874265501745387, guid: c5efc39a8aaf6e64ea40e9ad573e9b47,
+        type: 3}
+      propertyPath: field of view
+      value: 40
+      objectReference: {fileID: 0}
     - target: {fileID: 4353874265501745388, guid: c5efc39a8aaf6e64ea40e9ad573e9b47,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2182,6 +2193,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.z
       value: 0.19100013
+      objectReference: {fileID: 0}
+    - target: {fileID: 4353874265501745388, guid: c5efc39a8aaf6e64ea40e9ad573e9b47,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4353874265501745388, guid: c5efc39a8aaf6e64ea40e9ad573e9b47,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4353874265501745388, guid: c5efc39a8aaf6e64ea40e9ad573e9b47,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4353874265501745388, guid: c5efc39a8aaf6e64ea40e9ad573e9b47,
         type: 3}
@@ -2779,6 +2805,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1499818095}
   - component: {fileID: 1499818096}
+  - component: {fileID: 1499818097}
   m_Layer: 0
   m_Name: WALL
   m_TagString: Untagged
@@ -2835,6 +2862,22 @@ MonoBehaviour:
   StoreUI: {fileID: 248588243}
   supply: {fileID: 0}
   BUYCON: {fileID: 1135701565}
+  showDistance: 3
+--- !u!114 &1499818097
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1499818094}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74091c2e3a47a3843bbd36b63e20afe6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  third: {fileID: 0}
+  playerWeapons: []
+  percents: {fileID: 1239605204}
   showDistance: 3
 --- !u!1 &1513312938
 GameObject:

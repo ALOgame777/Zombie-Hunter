@@ -31,7 +31,7 @@ public class EnemyFSM : MonoBehaviour
     public float attackDistance = 2f;
 
     // 이동 속도
-    public float moveSpeed = 2f;
+    public float moveSpeed = 1f;
 
     // 캐릭터 컨트롤러 컴포넌트
     CharacterController cc;

@@ -7,7 +7,7 @@ public class UPGRADE : MonoBehaviour
 {
     public GameObject third; // 3번째 애 넣으면 됨.
     public Weapon[] playerWeapons; // 플레이어가 가지고 있는 모든 무기들
-    
+    public GameObject percents;
 
 
     public float showDistance = 3.0f; // 버튼이 보이는 거리
@@ -21,6 +21,7 @@ public class UPGRADE : MonoBehaviour
 
     void Start()
     {
+        percents.gameObject.SetActive(false);
         third.gameObject.SetActive(false);
         // 각각의 버튼에서 CanvasGroup 컴포넌트 찾기
         UPGRADEcanvas = third.GetComponent<CanvasGroup>();
@@ -51,6 +52,7 @@ public class UPGRADE : MonoBehaviour
                         UpgrdeWeapon();
                         HideSlider(UPGRADEcanvas);
                         hasPurchased = true;
+                        percents.gameObject.SetActive(true);
                     }
                 }
                
@@ -58,7 +60,7 @@ public class UPGRADE : MonoBehaviour
             else
             {
                 HideSlider(UPGRADEcanvas);
-               
+                percents.gameObject.SetActive(false);
             }
         }
     }

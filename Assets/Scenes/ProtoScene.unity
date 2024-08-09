@@ -369,6 +369,12 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 0
+--- !u!1 &316675269 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1663189444979200867, guid: c64156589cbfcfe4cb766414e6498285,
+    type: 3}
+  m_PrefabInstance: {fileID: 1004089687}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &433856586 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 646343338222112905, guid: c64156589cbfcfe4cb766414e6498285,
@@ -779,11 +785,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1405935344836829939, guid: c64156589cbfcfe4cb766414e6498285,
-        type: 3}
-      propertyPath: m_Alpha
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1833829885499085091, guid: c64156589cbfcfe4cb766414e6498285,
         type: 3}
       propertyPath: m_Name
@@ -1026,6 +1027,21 @@ PrefabInstance:
       propertyPath: magazineText
       value: 
       objectReference: {fileID: 602542302}
+    - target: {fileID: 4353874265501745388, guid: c5efc39a8aaf6e64ea40e9ad573e9b47,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.19999981
+      objectReference: {fileID: 0}
+    - target: {fileID: 4353874265501745388, guid: c5efc39a8aaf6e64ea40e9ad573e9b47,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.2670002
+      objectReference: {fileID: 0}
+    - target: {fileID: 4353874265501745388, guid: c5efc39a8aaf6e64ea40e9ad573e9b47,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.19099998
+      objectReference: {fileID: 0}
     - target: {fileID: 6248892602986480094, guid: c5efc39a8aaf6e64ea40e9ad573e9b47,
         type: 3}
       propertyPath: maxHealthText
@@ -1074,7 +1090,7 @@ PrefabInstance:
     - target: {fileID: 8997996947095583982, guid: c5efc39a8aaf6e64ea40e9ad573e9b47,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 22.65
+      value: 16.1
       objectReference: {fileID: 0}
     - target: {fileID: 8997996947095583982, guid: c5efc39a8aaf6e64ea40e9ad573e9b47,
         type: 3}
@@ -1602,6 +1618,7 @@ MonoBehaviour:
   - {fileID: 1293136473}
   - {fileID: 1293136475}
   - {fileID: 1293136474}
+  percents: {fileID: 316675269}
   showDistance: 3
 --- !u!114 &1629179131 stripped
 MonoBehaviour:
