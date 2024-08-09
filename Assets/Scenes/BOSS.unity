@@ -1925,6 +1925,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1241190531}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1167874734 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8746096416893534072, guid: c64156589cbfcfe4cb766414e6498285,
+    type: 3}
+  m_PrefabInstance: {fileID: 1241190531}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1239605204 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1663189444979200867, guid: c64156589cbfcfe4cb766414e6498285,
@@ -1944,14 +1956,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: HalthCanvas
       objectReference: {fileID: 0}
-    - target: {fileID: 5308632865833120972, guid: c64156589cbfcfe4cb766414e6498285,
+    - target: {fileID: 3048584256126794306, guid: c64156589cbfcfe4cb766414e6498285,
         type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5415825494989401745, guid: c64156589cbfcfe4cb766414e6498285,
+    - target: {fileID: 5308632865833120972, guid: c64156589cbfcfe4cb766414e6498285,
         type: 3}
-      propertyPath: m_IsActive
+      propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8061774457036554181, guid: c64156589cbfcfe4cb766414e6498285,
@@ -3896,6 +3908,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 276018173272465361, guid: 6168f067d3e272941bcc37fcb688c49d,
+        type: 3}
+      propertyPath: hpSlider
+      value: 
+      objectReference: {fileID: 1167874734}
     - target: {fileID: 276018173272465361, guid: 6168f067d3e272941bcc37fcb688c49d,
         type: 3}
       propertyPath: Endingvideo
