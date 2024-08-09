@@ -155,7 +155,7 @@ Material:
   m_Name: Optimized Bark Material
   m_Shader: {fileID: 4800000, guid: 933532a4fcc9baf4fa0491de14d08ed7, type: 3}
   m_Parent: {fileID: 2100000, guid: b7bd848d8ccdf60439092318fbb4254e, type: 2}
-  m_ModifiedSerializedProperties: 0
+  m_ModifiedSerializedProperties: 2
   m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 4
@@ -168,13 +168,20 @@ Material:
   m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
-    m_TexEnvs: []
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
     - _Cutoff: 0.3
+    - _Metallic: 0.381
+    - _Smoothness: 0.299
     m_Colors:
-    - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _BaseColor: {r: 0.24712504, g: 0.20581168, b: 0.3490566, a: 1}
+    - _Color: {r: 0.247125, g: 0.20581165, b: 0.34905657, a: 1}
+    - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   m_BuildTextureStacks: []
 --- !u!43 &6298421073653167665
@@ -454,7 +461,7 @@ MonoBehaviour:
     enableAmbientOcclusion: 1
     enableMaterialOptimize: 1
     aoDensity: 1
-    rootSpread: 5
+    rootSpread: 4.02
     groundOffset: 0
     rootMatrix:
       e00: 1
@@ -726,7 +733,7 @@ MonoBehaviour:
     vertEnd: 0
     capRange: 0
     breakOffset: 1
-    size: 5
+    size: 4.02
     scale: 1
     offset: 0
     baseAngle: 0
