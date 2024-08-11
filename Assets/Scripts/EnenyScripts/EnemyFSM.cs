@@ -64,12 +64,13 @@ public class EnemyFSM : MonoBehaviour
 
     public float patrolSpeed = 4;
     public Animator zomani;
+
     void Start()
     {
         // 최초의 에너미  상태는 대기(Idle)로 한다.
         m_state = EnemyState.Idle;
 
-        zomani = GetComponent<Animator>();
+       // zomani = GetComponent<Animator>();
         // 플레이어의 트랜스폼 컴포넌트 받아오기
         player = GameObject.Find("PlayerCapsule").transform;
 
@@ -121,6 +122,9 @@ public class EnemyFSM : MonoBehaviour
 
         // 플레이어의 공격력 만큼 에너미 체력을 감소
         hp -= hitPower;
+
+        
+
         DamagePopUpGenerator.current.CreatePopUp(transform.position, hitPower.ToString(), Color.red);
         // 에너미의 체력이 0보다 크면 피격 상태로 전환
         if (hp > 0)
@@ -224,7 +228,9 @@ public class EnemyFSM : MonoBehaviour
 
     void Move()
     {
-       
+        zomani.SetBool("Run", true);
+        zomani.SetBool("Attack", false);
+        //zomani.SetTrigger("ATTACK");
         // 만일 현재 위치가 초기 위치에서 이동 가능 범위를 넘어간다면
         if (Vector3.Distance(transform.position, orginPos) > moveDistance)
         {
@@ -298,9 +304,15 @@ public class EnemyFSM : MonoBehaviour
             }
             // 일정 시간마다 플레이어를 공격한다.
             currentTime += Time.deltaTime;
+           
             if (currentTime > attackDelay)
             {
                 player.GetComponent<CharacterStats>().TakeDamage(attackPower);
+                zomani.SetBool("Attack", true);
+               // zomani.SetTrigger("ATTACK");
+                zomani.SetBool("Run", false);
+                
+
                 print("공격");
                 currentTime = 0;
             }
@@ -324,7 +336,7 @@ public class EnemyFSM : MonoBehaviour
     // 죽음 상태 함수
     void Die()
     {
-       
+        zomani.SetBool("Death", true);
         // 진행 중인 피격 코루틴을 중지
         StopAllCoroutines();
         Debug.Log("적 사망 전 점수: " + ScoreManager.Instance.GetScore());
