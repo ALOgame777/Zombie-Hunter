@@ -85,6 +85,9 @@ public class BOSS : MonoBehaviour
     // 체력 UI
     public Slider hpSlider;
 
+    // 애니메이션
+    public Animator BOSSani;
+
 
     void Start()
     {
@@ -216,6 +219,9 @@ public class BOSS : MonoBehaviour
 
     void Move()
     {
+        BOSSani.SetBool("Move",true);
+        BOSSani.SetBool("Attack",false);
+
         print(player.position);
         // 만일 플레이어와의 거리가 공격 범위 밖이라면 플레이어를 향해 이동한다.
         if (Vector3.Distance(transform.position, player.position) > attackDistance)
@@ -277,6 +283,10 @@ public class BOSS : MonoBehaviour
             if (currentTime > attackDelay)
             {
                 player.GetComponent<CharacterStats>().TakeDamage(attackPower);
+
+                BOSSani.SetBool("Attack",true);
+                BOSSani.SetBool("Move", false);
+
                 currentTime = 0;
             }
         }

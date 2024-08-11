@@ -13,7 +13,12 @@ public class FirstMarket : MonoBehaviour
     private Transform playerposition; // 플레이어 위치 추적
     private CanvasGroup buyDoubleShotCanvasGroup; // BuyDoubleShot의 CanvasGroup
     private CanvasGroup imiboyouzongCanvasGroup; // Imiboyouzong의 CanvasGroup
+
     public Weapon FirstGun;
+
+    public Button hanbunedubal;
+    public RawImage Doubles;
+
 
     public ScoreManager ScoreManager;
     public UIManager UIManager;
@@ -34,6 +39,9 @@ public class FirstMarket : MonoBehaviour
 
         // 초기에는 Imiboyouzong 버튼을 숨김
         Imiboyouzong.gameObject.SetActive(false);
+        hanbunedubal.gameObject.SetActive(false);
+        UIManager.gameObject.SetActive(false);
+
     }
 
     void Update()
@@ -65,6 +73,10 @@ public class FirstMarket : MonoBehaviour
                         BuyDoubleShot.gameObject.SetActive(false);
                         Imiboyouzong.gameObject.SetActive(true);
                         hasPurchased = true;
+                        //Doubles.gameObject.SetActive(true);
+                        //hanbunedubal.gameObject.SetActive(true);
+
+                        StartCoroutine(FlashIcons());
                     }
                 }
             }
@@ -73,6 +85,7 @@ public class FirstMarket : MonoBehaviour
                 // 거리가 멀어지면 모든 슬라이더 숨기기
                 HideSlider(buyDoubleShotCanvasGroup);
                 HideSlider(imiboyouzongCanvasGroup);
+               
             }
         }
     }
@@ -99,6 +112,19 @@ public class FirstMarket : MonoBehaviour
             //Debug.Log("적 사망 전 점수: " + ScoreManager.Instance.GetScore());
             //Debug.Log("적 사망 후 점수: " + ScoreManager.Instance.GetScore());
         }
+    }
+    private IEnumerator FlashIcons()
+    {
+        // Doubles와 hanbunedubal를 5초 동안 보이도록 설정
+        Doubles.gameObject.SetActive(true);
+        hanbunedubal.gameObject.SetActive(true);
+
+        // 5초 동안 대기
+        yield return new WaitForSeconds(5.0f);
+
+        // 5초가 지나면 Doubles와 hanbunedubal을 숨김
+        Doubles.gameObject.SetActive(false);
+        hanbunedubal.gameObject.SetActive(false);
     }
 }
 
