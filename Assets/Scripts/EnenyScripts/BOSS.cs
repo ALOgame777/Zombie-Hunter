@@ -147,10 +147,10 @@ public class BOSS : MonoBehaviour
         }
 
         // 'E' 키를 누르면 씬을 로드
-        if (GoStartButton.activeSelf && Input.GetKeyDown(KeyCode.E))
-        {
-            SceneManager.LoadScene(0);
-        }
+        //if (GoStartButton.activeSelf && Input.GetKeyDown(KeyCode.E))
+        //{
+        //    SceneManager.LoadScene(0);
+        //}
 
 
     }
