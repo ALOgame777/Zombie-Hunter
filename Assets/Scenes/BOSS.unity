@@ -3375,6 +3375,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5060435155484056511, guid: c64156589cbfcfe4cb766414e6498285,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5308632865833120972, guid: c64156589cbfcfe4cb766414e6498285,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -7616,6 +7621,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 37804f44fb6382743bfc0c7778484693, type: 3}
+--- !u!1 &2011740079 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5060435155484056511, guid: c64156589cbfcfe4cb766414e6498285,
+    type: 3}
+  m_PrefabInstance: {fileID: 815628458}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2044463848
 GameObject:
   m_ObjectHideFlags: 0
@@ -7737,6 +7748,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 37804f44fb6382743bfc0c7778484693, type: 3}
+--- !u!1 &2062193262 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6517856214852480943, guid: c64156589cbfcfe4cb766414e6498285,
+    type: 3}
+  m_PrefabInstance: {fileID: 815628458}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2095859316 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400008, guid: 37804f44fb6382743bfc0c7778484693,
@@ -8122,7 +8139,7 @@ PrefabInstance:
         type: 3}
       propertyPath: Endingvideo
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2062193262}
     - target: {fileID: 276018173272465361, guid: 6168f067d3e272941bcc37fcb688c49d,
         type: 3}
       propertyPath: HPsliderBOSS
@@ -8132,12 +8149,12 @@ PrefabInstance:
         type: 3}
       propertyPath: GoStartButton
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2011740079}
     - target: {fileID: 276018173272465361, guid: 6168f067d3e272941bcc37fcb688c49d,
         type: 3}
       propertyPath: blackScreenUI
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1125111637}
     - target: {fileID: 5997009204568398196, guid: 6168f067d3e272941bcc37fcb688c49d,
         type: 3}
       propertyPath: m_LocalPosition.x
