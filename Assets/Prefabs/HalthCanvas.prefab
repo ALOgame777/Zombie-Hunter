@@ -4495,6 +4495,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7194900798875992417}
   - component: {fileID: 8746096416893534072}
+  - component: {fileID: 553444934417646046}
   m_Layer: 5
   m_Name: HPsliderBOSS
   m_TagString: Untagged
@@ -4575,6 +4576,18 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!225 &553444934417646046
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7179777996407958642}
+  m_Enabled: 1
+  m_Alpha: 0
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &7243372129904528820
 GameObject:
   m_ObjectHideFlags: 0

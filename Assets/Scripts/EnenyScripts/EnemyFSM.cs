@@ -224,8 +224,7 @@ public class EnemyFSM : MonoBehaviour
 
     void Move()
     {
-        //zomani.SetBool("Run", true);
-        //zomani.SetBool("Attack", false);
+       
         // 만일 현재 위치가 초기 위치에서 이동 가능 범위를 넘어간다면
         if (Vector3.Distance(transform.position, orginPos) > moveDistance)
         {
@@ -286,8 +285,7 @@ public class EnemyFSM : MonoBehaviour
     }
     void Attack()
     {
-        //zomani.SetBool("Run", false);
-        //zomani.SetBool("Attack", true);
+        
         //만일 플레이어가 공격 범위 이내에 있다면 플레이어를 공격한다.
         if (Vector3.Distance(transform.position, player.position) < attackDistance)
         {
@@ -326,7 +324,7 @@ public class EnemyFSM : MonoBehaviour
     // 죽음 상태 함수
     void Die()
     {
-        //zomani.SetBool("Death", true);
+       
         // 진행 중인 피격 코루틴을 중지
         StopAllCoroutines();
         Debug.Log("적 사망 전 점수: " + ScoreManager.Instance.GetScore());
