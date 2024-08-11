@@ -5565,9 +5565,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f8dda8a5db735946bcf78aa37f5ceb7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ButtonUI: {fileID: 0}
-  Enter: {fileID: 0}
-  StoreUI: {fileID: 0}
+  ButtonUI: {fileID: 43778355}
+  Enter: {fileID: 1777748097}
+  StoreUI: {fileID: 1961160712}
   supply: {fileID: 43778355}
   BUYCON: {fileID: 1777748094}
   showDistance: 3
@@ -6972,6 +6972,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 815628458}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1777748097 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3497933884787754895, guid: c64156589cbfcfe4cb766414e6498285,
+    type: 3}
+  m_PrefabInstance: {fileID: 815628458}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1777748094}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1802944170
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7390,6 +7402,12 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 190943969}
   m_SourcePrefab: {fileID: 100100000, guid: f5a9bd478ca094495a4520e37f57420d, type: 3}
+--- !u!1 &1961160712 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5415825494989401745, guid: c64156589cbfcfe4cb766414e6498285,
+    type: 3}
+  m_PrefabInstance: {fileID: 815628458}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1961192696
 PrefabInstance:
   m_ObjectHideFlags: 0
