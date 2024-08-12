@@ -520,7 +520,7 @@ PrefabInstance:
     - target: {fileID: 6883054617910945073, guid: 0f3a864c7d5714f4e9c4de6175fde8df,
         type: 3}
       propertyPath: ammoAmount
-      value: 1
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 7333845208892017060, guid: 0f3a864c7d5714f4e9c4de6175fde8df,
         type: 3}
@@ -1854,6 +1854,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: HalthCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 3048584256126794306, guid: c64156589cbfcfe4cb766414e6498285,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3048584256126794306, guid: c64156589cbfcfe4cb766414e6498285,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5027149261813645637, guid: c64156589cbfcfe4cb766414e6498285,
         type: 3}

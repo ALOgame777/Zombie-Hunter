@@ -83,6 +83,7 @@ public class Weapon : MonoBehaviour
                 ProcessRayCast();
                 currentMagazineAmmo--;
                 ammoText.text = "0";
+                recoil.Recoil();
                 if (CompareTag("RPG"))
                 {
                     audioSource.clip = RPG7shootSound;
