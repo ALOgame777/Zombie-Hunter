@@ -219,7 +219,7 @@ public class BOSS : MonoBehaviour
 
     void Move()
     {
-        BOSSani.SetBool("Move",true);
+        BOSSani.SetBool("Walk", true);
         BOSSani.SetBool("Attack",false);
 
         print(player.position);
@@ -240,7 +240,7 @@ public class BOSS : MonoBehaviour
                 cc.Move(dir * moveSpeed * Time.deltaTime);
 
                 // 이동하려는 방향으로 회전한다.
-                transform.rotation = Quaternion.LookRotation(dir.normalized * -1);
+                transform.rotation = Quaternion.LookRotation(dir.normalized * 1);
             }
 
             // 중력 적용
@@ -285,7 +285,7 @@ public class BOSS : MonoBehaviour
                 player.GetComponent<CharacterStats>().TakeDamage(attackPower);
 
                 BOSSani.SetBool("Attack",true);
-                BOSSani.SetBool("Move", false);
+                BOSSani.SetBool("Walk", false);
 
                 currentTime = 0;
             }
@@ -310,6 +310,7 @@ public class BOSS : MonoBehaviour
     // 죽음 상태 함수
     void Die()
     {
+
         // 진행 중인 피격 코루틴을 중지
         StopAllCoroutines();
 
