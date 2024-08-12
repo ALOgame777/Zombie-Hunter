@@ -64,6 +64,10 @@ public class EnemyFSM : MonoBehaviour
 
     public float patrolSpeed = 4;
     public Animator zomani;
+    int RunNumber = 0;
+    float[] WalkBlendValue = new float[] { 0, 1.0f };
+    private float lastAttackTime = 0f;
+    public float attackInterval = 1f; // 공격 간격 (초)
 
     void Start()
     {
@@ -223,6 +227,7 @@ public class EnemyFSM : MonoBehaviour
         {
             m_state = EnemyState.Move;
             print("상태 전환 : Idle -> Move");
+            zomani.SetFloat("Blend", WalkBlendValue[UnityEngine.Random.Range(0, 2)]);
         }   
     }
 
@@ -230,10 +235,12 @@ public class EnemyFSM : MonoBehaviour
     {
         zomani.SetBool("Run", true);
         zomani.SetBool("Attack", false);
+        
         //zomani.SetTrigger("ATTACK");
         // 만일 현재 위치가 초기 위치에서 이동 가능 범위를 넘어간다면
         if (Vector3.Distance(transform.position, orginPos) > moveDistance)
         {
+
             // 현재 상태를 복귀(return)로 전환
             m_state = EnemyState.Return;
             print("상태 전환 : move -> return");
@@ -327,14 +334,20 @@ public class EnemyFSM : MonoBehaviour
         }
     }
     private void OnCollisionStay(Collision collision)
-{
-    if (collision.gameObject.CompareTag("Player"))
     {
-        Attack();  // 플레이어와 충돌 시 Attack 메서드 호출
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            if (Time.deltaTime - lastAttackTime >= attackInterval)
+            {
+                Attack();  // 플레이어와 충돌 시 Attack 메서드 호출
+                lastAttackTime = Time.deltaTime;
+            }
+
+
+        }
     }
-}
-    // 죽음 상태 함수
-    void Die()
+        // 죽음 상태 함수
+        void Die()
     {
         zomani.SetBool("Death", true);
         // 진행 중인 피격 코루틴을 중지
