@@ -3420,6 +3420,7 @@ MonoBehaviour:
   gravity: -9.81
   patrolSpeed: 4
   zomani: {fileID: 0}
+  attackInterval: 1
 --- !u!4 &661718123 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8642225304373351647, guid: 50a0925b0c22af146a2d15615f815a1c,
@@ -8293,6 +8294,7 @@ MonoBehaviour:
   gravity: -9.81
   patrolSpeed: 4
   zomani: {fileID: 0}
+  attackInterval: 1
 --- !u!1 &1746705146
 GameObject:
   m_ObjectHideFlags: 0
