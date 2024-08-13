@@ -77,12 +77,11 @@ public class Weapon : MonoBehaviour
         for (int i = 0; i < fireCount; i++)
         {
             canShoot = false;
-            if (ammoType == AmmoType.Rockets)
+            if (ammoType == AmmoType.Rockets && currentMagazineAmmo > 0)
             {
                 PlayMuzzleFlash();
                 ProcessRayCast();
                 currentMagazineAmmo--;
-                ammoText.text = "0";
                 recoil.Recoil();
                 if (CompareTag("RPG"))
                 {
@@ -160,7 +159,7 @@ public class Weapon : MonoBehaviour
         canShoot = false;
         reloadText.gameObject.SetActive(true);
 
-        yield return new WaitForSeconds(2.0f);
+        yield return new WaitForSeconds(1.0f);
 
         int ammoNeeded = maxMagazineSize - currentMagazineAmmo;
         int currentAmmo = ammoSlot.GetCurrentAmmo(ammoType);
@@ -177,13 +176,12 @@ public class Weapon : MonoBehaviour
         }
 
         canShoot = true;
-        reloadText.gameObject.SetActive(false);
         if (CompareTag("Carbine"))
         {
             audioSource.clip = CarbinereloadAudio;
             audioSource.Play();
         }
-        if(CompareTag("AK47"))
+        if (CompareTag("AK47"))
         {
             audioSource.clip = AK47reloadAudio;
             audioSource.Play();
@@ -193,6 +191,8 @@ public class Weapon : MonoBehaviour
             audioSource.clip = RPG7reloadAudio;
             audioSource.Play();
         }
+        reloadText.gameObject.SetActive(false);
+        
         DisplayAmmo();
         
     }
