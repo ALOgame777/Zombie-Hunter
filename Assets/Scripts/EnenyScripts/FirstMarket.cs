@@ -5,8 +5,8 @@ using UnityEngine.UI;
 
 public class FirstMarket : MonoBehaviour
 {
-    public GameObject ButtonUI;
-    public GameObject DOOR;
+    //public GameObject ButtonUI;
+    //public GameObject DOOR;
     public Button BuyDoubleShot; // 더블 탭 구매 버튼
     public Button Imiboyouzong; // 이미 보유중 표시
     public float showDistance = 3.0f; // 버튼이 보이는 거리
