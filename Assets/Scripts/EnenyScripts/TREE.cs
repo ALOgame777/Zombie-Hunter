@@ -41,7 +41,8 @@ public class TREE : MonoBehaviour
     public void TakeDamage(int damage)
     {
         currentHealth -= damage; // 현재 체력을 감소시킴
-        DamagePopUpGenerator.current.CreatePopUp(transform.position, damage.ToString(), Color.red);
+        Vector3 randomness = new Vector3(Random.Range(0f, 0.25f), Random.Range(0f, 0.25f), Random.Range(0f, 0.25f));
+        DamagePopUpGenerator.current.CreatePopUp(transform.position + randomness, damage.ToString(), Color.red);
         Debug.Log("Tree took damage, current health: " + currentHealth);
         if (currentHealth <= 0)
         {

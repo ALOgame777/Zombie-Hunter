@@ -171,7 +171,8 @@ public class BOSS : MonoBehaviour
         hpSlider.value = hp / 50000.0f;
 
         // 공격시 흰색으로 데미지 표시
-        DamagePopUpGenerator.current.CreatePopUp(transform.position, hitPower.ToString(), Color.white);
+        Vector3 randomness = new Vector3(UnityEngine.Random.Range(0f, 0.25f), UnityEngine.Random.Range(0f, 0.25f), UnityEngine.Random.Range(0f, 0.25f));
+        DamagePopUpGenerator.current.CreatePopUp(transform.position + randomness, hitPower.ToString(), Color.white);
         //점수 상승
         ScoreManager.Instance.AddScore(10000);
         // 에너미의 체력이 0보다 크면 피격 상태로 전환

@@ -127,9 +127,9 @@ public class EnemyFSM : MonoBehaviour
         // 플레이어의 공격력 만큼 에너미 체력을 감소
         hp -= hitPower;
 
-        
 
-        DamagePopUpGenerator.current.CreatePopUp(transform.position, hitPower.ToString(), Color.red);
+        Vector3 randomness = new Vector3(UnityEngine.Random.Range(0f, 0.25f), UnityEngine.Random.Range(0f, 0.25f), UnityEngine.Random.Range(0f, 0.25f));
+        DamagePopUpGenerator.current.CreatePopUp(transform.position + randomness, hitPower.ToString(), Color.red);
         // 에너미의 체력이 0보다 크면 피격 상태로 전환
         if (hp > 0)
         {
