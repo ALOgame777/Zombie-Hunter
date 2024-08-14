@@ -40,7 +40,7 @@ public class FirstMarket : MonoBehaviour
         // ÃÊ±â¿¡´Â Imiboyouzong ¹öÆ°À» ¼û±è
         Imiboyouzong.gameObject.SetActive(false);
         hanbunedubal.gameObject.SetActive(false);
-        UIManager.gameObject.SetActive(false);
+        //UIManager.gameObject.SetActive(false);
 
     }
 

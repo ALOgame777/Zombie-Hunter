@@ -128,7 +128,7 @@ public class EnemyFSM : MonoBehaviour
         hp -= hitPower;
 
 
-        Vector3 randomness = new Vector3(UnityEngine.Random.Range(0f, 0.25f), UnityEngine.Random.Range(0f, 0.25f), UnityEngine.Random.Range(0f, 0.25f));
+        Vector3 randomness = new Vector3(UnityEngine.Random.Range(0.5f, 3f), UnityEngine.Random.Range(0.5f, 3f), UnityEngine.Random.Range(0.5f, 3f));
         DamagePopUpGenerator.current.CreatePopUp(transform.position + randomness, hitPower.ToString(), Color.red);
         // 에너미의 체력이 0보다 크면 피격 상태로 전환
         if (hp > 0)
