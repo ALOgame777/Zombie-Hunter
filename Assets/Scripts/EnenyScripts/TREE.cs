@@ -7,9 +7,11 @@ public class TREE : MonoBehaviour
 {
     public int maxHealth = 3; // 나무의 최대 체력
     private int currentHealth; // 나무의 현재 체력
-
+    private Transform player;
     private void Start()
     {
+
+        player = GameObject.Find("PlayerCapsule").transform;
         currentHealth = maxHealth; // 현재 체력을 최대 체력으로 설정
     }
     private void OnTriggerEnter(Collider other)
@@ -22,6 +24,12 @@ public class TREE : MonoBehaviour
             if (playerController != null)
             {
                 StartCoroutine(BindPlayer(playerController));
+                PlayerInvincibility playerInvincibility = player.GetComponent<PlayerInvincibility>();
+                if (playerInvincibility != null && playerInvincibility.IsInvincible())
+                {
+                    StopCoroutine(BindPlayer(playerController));
+                    playerController.enabled = true;
+                }
             }
         }
     }
@@ -32,11 +40,12 @@ public class TREE : MonoBehaviour
         playerController.enabled = false;
 
         // 1초 동안 기다림
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.5f);
 
         // 플레이어의 이동을 다시 활성화
         playerController.enabled = true;
     }
+
     // 나무가 데미지를 받을 때 호출되는 함수
     public void TakeDamage(int damage)
     {

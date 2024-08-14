@@ -1870,6 +1870,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: HalthCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 2216055784888022320, guid: c64156589cbfcfe4cb766414e6498285,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3048584256126794306, guid: c64156589cbfcfe4cb766414e6498285,
         type: 3}
       propertyPath: m_AnchorMax.x

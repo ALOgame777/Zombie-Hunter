@@ -283,6 +283,11 @@ public class BOSS : MonoBehaviour
             currentTime += Time.deltaTime;
             if (currentTime > attackDelay)
             {
+                PlayerInvincibility playerInvincibility = player.GetComponent<PlayerInvincibility>();
+                if (playerInvincibility != null && playerInvincibility.IsInvincible())
+                {
+                    return;
+                }
                 player.GetComponent<CharacterStats>().TakeDamage(attackPower);
 
                 BOSSani.SetBool("Attack",true);

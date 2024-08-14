@@ -170,6 +170,7 @@ public class SecondMarket : MonoBehaviour
     {
         StoreUI.gameObject.SetActive(false);
         BUYCON.gameObject.SetActive(false);
+        supply.SetActive(false);
         // 각각의 버튼에서 CanvasGroup 컴포넌트 찾기
         SecondMarketCanvas = Enter.GetComponent<CanvasGroup>();
 
@@ -194,6 +195,7 @@ public class SecondMarket : MonoBehaviour
             {
                 if (!hasPurchased)
                 {
+                    supply.SetActive(true);
                     ShowSlider(SecondMarketCanvas);
                     if (Input.GetKeyDown(KeyCode.E))
                     {
@@ -207,7 +209,9 @@ public class SecondMarket : MonoBehaviour
                         else
                         {
                             Buythis();
+                            supply.SetActive(false);
                             hasPurchased = true;
+
                         }
                     }
                 }
