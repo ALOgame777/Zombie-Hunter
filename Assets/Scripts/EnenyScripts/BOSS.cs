@@ -377,16 +377,13 @@ public class BOSS : MonoBehaviour
     // 2초 동안 빠르게 이동하는 코루틴
     IEnumerator FastMove()
     {
-        // 스킬 애니메이션
-        BOSSani.SetBool("Attack", false);
-        BOSSani.SetBool("Walk", false);
+        // 스킬 애니메이션 실행
+        //BOSSani.SetBool("Attack", false);
+        //BOSSani.SetBool("Walk", false);
         BOSSani.SetBool("Skill", true);
 
         // 'a' 소리 재생
         audioSource.PlayOneShot(teleportSound);
-
-        // 1초 대기
-        yield return new WaitForSeconds(2f);
 
         // 소리 재생 시간 동안 보스 움직임 멈춤
         float soundDuration = teleportSound.length;
@@ -407,24 +404,24 @@ public class BOSS : MonoBehaviour
             elapsedTime += Time.deltaTime;
             yield return null;
         }
+
+        // 이동이 끝나면 애니메이션 복구
+        BOSSani.SetBool("Skill", false);
     }
+
 
 
     IEnumerator ReleasePoison()
     {
         print("독극물 뿌리기 시작");
 
-        // 스킬 애니메이션
-        BOSSani.SetBool("Attack", false);
-        BOSSani.SetBool("Walk", false);
+        // 스킬 애니메이션 실행
+        //BOSSani.SetBool("Attack", false);
+        //BOSSani.SetBool("Walk", false);
         BOSSani.SetBool("Skill", true);
 
         // 'a' 소리 재생
         audioSource.PlayOneShot(poisonSound);
-
-        // 1초 대기
-        yield return new WaitForSeconds(2f);
-
 
         // 소리 재생 시간 동안 보스 움직임 멈춤
         float soundDuration = poisonSound.length;
@@ -445,7 +442,11 @@ public class BOSS : MonoBehaviour
         // 독극물 영역 제거
         Destroy(poisonArea);
         print("독극물 뿌리기 종료");
+
+        // 독극물 뿌리기 후 애니메이션 복구
+        BOSSani.SetBool("Skill", false);
     }
+
 
 
 
