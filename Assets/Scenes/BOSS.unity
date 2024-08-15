@@ -4165,10 +4165,6 @@ GameObject:
   - component: {fileID: 849291169}
   - component: {fileID: 849291168}
   - component: {fileID: 849291167}
-  - component: {fileID: 849291166}
-  - component: {fileID: 849291165}
-  - component: {fileID: 849291164}
-  - component: {fileID: 849291163}
   m_Layer: 0
   m_Name: UpQuad
   m_TagString: Untagged
@@ -4191,74 +4187,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1285183768}
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
---- !u!114 &849291163
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 849291161}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7478e8a50190bba458bcd5ae5add3145, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 5024857781335781044, guid: 3394a142eef3b854ca18f3083437e5b2,
-    type: 3}
-  delayTime: 30
-  patrolCenter: {x: 0, y: 0, z: 0}
-  patrolRadius: 25
---- !u!114 &849291164
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 849291161}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 450e6deedb3490c4d8190619034a856d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 7703366500764253259, guid: 03b575e849658bb43b6fadbd22b3b053,
-    type: 3}
-  delayTime: 9
-  patrolCenter: {x: -11, y: 1, z: 4}
-  patrolRadius: 10
---- !u!114 &849291165
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 849291161}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 450e6deedb3490c4d8190619034a856d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 7703366500764253259, guid: 03b575e849658bb43b6fadbd22b3b053,
-    type: 3}
-  delayTime: 8
-  patrolCenter: {x: 0, y: 1, z: -15}
-  patrolRadius: 10
---- !u!114 &849291166
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 849291161}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 450e6deedb3490c4d8190619034a856d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 7703366500764253259, guid: 03b575e849658bb43b6fadbd22b3b053,
-    type: 3}
-  delayTime: 7
-  patrolCenter: {x: 3, y: 1, z: 3}
-  patrolRadius: 10
 --- !u!64 &849291167
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -8390,7 +8318,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1689194336}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 450e6deedb3490c4d8190619034a856d, type: 3}
   m_Name: 
@@ -8407,7 +8335,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1689194336}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 450e6deedb3490c4d8190619034a856d, type: 3}
   m_Name: 

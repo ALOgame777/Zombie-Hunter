@@ -235,6 +235,7 @@ public class BOSS : MonoBehaviour
     {
         BOSSani.SetBool("Walk", true);
         BOSSani.SetBool("Attack", false);
+        BOSSani.SetBool("Skill",false);
 
         print(player.position);
         // 만일 플레이어와의 거리가 공격 범위 밖이라면 플레이어를 향해 이동한다.
@@ -305,6 +306,7 @@ public class BOSS : MonoBehaviour
 
                 BOSSani.SetBool("Attack", true);
                 BOSSani.SetBool("Walk", false);
+                BOSSani.SetBool("Skill", false);
 
                 currentTime = 0;
             }
@@ -375,11 +377,16 @@ public class BOSS : MonoBehaviour
     // 2초 동안 빠르게 이동하는 코루틴
     IEnumerator FastMove()
     {
-        // 1초 대기
-        yield return new WaitForSeconds(1f);
+        // 스킬 애니메이션
+        BOSSani.SetBool("Attack", false);
+        BOSSani.SetBool("Walk", false);
+        BOSSani.SetBool("Skill", true);
 
         // 'a' 소리 재생
         audioSource.PlayOneShot(teleportSound);
+
+        // 1초 대기
+        yield return new WaitForSeconds(2f);
 
         // 소리 재생 시간 동안 보스 움직임 멈춤
         float soundDuration = teleportSound.length;
@@ -407,11 +414,17 @@ public class BOSS : MonoBehaviour
     {
         print("독극물 뿌리기 시작");
 
-        // 1초 대기
-        yield return new WaitForSeconds(1f);
+        // 스킬 애니메이션
+        BOSSani.SetBool("Attack", false);
+        BOSSani.SetBool("Walk", false);
+        BOSSani.SetBool("Skill", true);
 
         // 'a' 소리 재생
         audioSource.PlayOneShot(poisonSound);
+
+        // 1초 대기
+        yield return new WaitForSeconds(2f);
+
 
         // 소리 재생 시간 동안 보스 움직임 멈춤
         float soundDuration = poisonSound.length;
