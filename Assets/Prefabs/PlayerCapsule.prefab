@@ -515,8 +515,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55919ac34a26952479f3fc91f777b2fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MoveSpeed: 4
-  SprintSpeed: 6
+  MoveSpeed: 5
+  SprintSpeed: 10
   RotationSpeed: 1
   SpeedChangeRate: 15
   JumpHeight: 1.2
@@ -1161,8 +1161,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   virtualCamera: {fileID: 4450682246334715917}
-  shakeIntensity: 0
-  shakeTime: 0
+  shakeIntensity: 3
+  shakeTime: 1
+  walkingBobbingSpeed: 14
+  bobbingAmount: 0.05
+  horizontalBobbingAmount: 0.02
 --- !u!20 &4353874265501745387 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 9005220659476430821, guid: 2d3a85ecde41a8246a79669975912b74,
