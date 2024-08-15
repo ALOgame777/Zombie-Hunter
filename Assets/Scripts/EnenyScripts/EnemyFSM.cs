@@ -71,6 +71,7 @@ public class EnemyFSM : MonoBehaviour
 
     // 소리 클립
     public AudioClip ZombieSound;
+    public AudioSource Zombiesounds;
 
     void Start()
     {
@@ -88,6 +89,11 @@ public class EnemyFSM : MonoBehaviour
         orginPos = transform.position;
 
         playerStats = CharacterStats.cs;
+
+        // 사운드
+        Zombiesounds = GetComponent<AudioSource>();
+        Zombiesounds.loop = true; // 반복
+        Zombiesounds.Play(); // 사운드 재생
     }
 
     // Update is called once per frame
