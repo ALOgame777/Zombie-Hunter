@@ -64,9 +64,13 @@ namespace StarterAssets
 		private float _jumpTimeoutDelta;
 		private float _fallTimeoutDelta;
 
-	
+        private AudioSource _audioSource;
+		public AudioClip audioClip;
+        private float _stepTimer = 0f;
+        private float _stepInterval = 0.5f; // 발걸음 소리가 나는 간격 (초)
+
 #if ENABLE_INPUT_SYSTEM
-		private PlayerInput _playerInput;
+        private PlayerInput _playerInput;
 #endif
 		private CharacterController _controller;
 		private StarterAssetsInputs _input;
@@ -97,6 +101,7 @@ namespace StarterAssets
 
 		private void Start()
 		{
+			_audioSource = GetComponent<AudioSource>();
 			_controller = GetComponent<CharacterController>();
 			_input = GetComponent<StarterAssetsInputs>();
 #if ENABLE_INPUT_SYSTEM
@@ -156,14 +161,18 @@ namespace StarterAssets
 			// set target speed based on move speed, sprint speed and if sprint is pressed
 			float targetSpeed = _input.sprint ? SprintSpeed : MoveSpeed;
 
-			// a simplistic acceleration and deceleration designed to be easy to remove, replace, or iterate upon
+            // a simplistic acceleration and deceleration designed to be easy to remove, replace, or iterate upon
 
-			// note: Vector2's == operator uses approximation so is not floating point error prone, and is cheaper than magnitude
-			// if there is no input, set the target speed to 0
-			if (_input.move == Vector2.zero) targetSpeed = 0.0f;
+            // note: Vector2's == operator uses approximation so is not floating point error prone, and is cheaper than magnitude
+            // if there is no input, set the target speed to 0
+            if (_input.move == Vector2.zero)
+            {
+                targetSpeed = 0.0f;
+                _stepTimer = 0f; // 멈출 때 타이머 초기화
+            }
 
-			// a reference to the players current horizontal velocity
-			float currentHorizontalSpeed = new Vector3(_controller.velocity.x, 0.0f, _controller.velocity.z).magnitude;
+            // a reference to the players current horizontal velocity
+            float currentHorizontalSpeed = new Vector3(_controller.velocity.x, 0.0f, _controller.velocity.z).magnitude;
 
 			float speedOffset = 0.1f;
 			float inputMagnitude = _input.analogMovement ? _input.move.magnitude : 1f;
@@ -192,7 +201,22 @@ namespace StarterAssets
 			{
 				// move
 				inputDirection = transform.right * _input.move.x + transform.forward * _input.move.y;
-			}
+                // 플레이어가 이동 중이라면 발걸음 소리 재생
+                if (_input.move != Vector2.zero)
+                {
+                    _stepTimer += Time.deltaTime;
+                    if (_stepTimer >= _stepInterval)
+                    {
+                        _audioSource.Play();
+                        _stepTimer = 0f; // 타이머 리셋
+                    }
+                }
+                else
+                {
+                    // 플레이어가 멈추면 타이머 초기화
+                    _stepTimer = 0f;
+                }
+            }
 
 			// move the player
 			_controller.Move(inputDirection.normalized * (_speed * Time.deltaTime) + new Vector3(0.0f, _verticalVelocity, 0.0f) * Time.deltaTime);
