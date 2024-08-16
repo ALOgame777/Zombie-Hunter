@@ -65,7 +65,6 @@ namespace StarterAssets
 		private float _fallTimeoutDelta;
 
         private AudioSource _audioSource;
-		public AudioClip audioClip;
         private float _stepTimer = 0f;
         private float _stepInterval = 0.5f; // 발걸음 소리가 나는 간격 (초)
 
