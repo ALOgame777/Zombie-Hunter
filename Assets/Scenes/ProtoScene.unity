@@ -2445,6 +2445,24 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 837632498}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1215049267 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5646120257105186779, guid: eaab0eac09f1a8242a12b9ca01bfa9d0,
+    type: 3}
+  m_PrefabInstance: {fileID: 1575504600}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1215049271 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9019884095925494400, guid: eaab0eac09f1a8242a12b9ca01bfa9d0,
+    type: 3}
+  m_PrefabInstance: {fileID: 1575504600}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1215049267}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15852b2539ac0dc49a9850a9885726d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &1223239093 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4477546316087992797, guid: c64156589cbfcfe4cb766414e6498285,
@@ -3882,6 +3900,21 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 162903793712774771, guid: eaab0eac09f1a8242a12b9ca01bfa9d0,
         type: 3}
+      propertyPath: controller
+      value: 
+      objectReference: {fileID: 1215049271}
+    - target: {fileID: 162903793712774771, guid: eaab0eac09f1a8242a12b9ca01bfa9d0,
+        type: 3}
+      propertyPath: childObject
+      value: 
+      objectReference: {fileID: 1215049267}
+    - target: {fileID: 162903793712774771, guid: eaab0eac09f1a8242a12b9ca01bfa9d0,
+        type: 3}
+      propertyPath: repairSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 00721b3f1249b1f458c9192bb9d4e672, type: 3}
+    - target: {fileID: 162903793712774771, guid: eaab0eac09f1a8242a12b9ca01bfa9d0,
+        type: 3}
       propertyPath: progressSlider
       value: 
       objectReference: {fileID: 1871934018}
@@ -4035,6 +4068,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: tutorialMAP_2
       objectReference: {fileID: 0}
+    - target: {fileID: 8478203808490748424, guid: eaab0eac09f1a8242a12b9ca01bfa9d0,
+        type: 3}
+      propertyPath: repairSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 00721b3f1249b1f458c9192bb9d4e672, type: 3}
     - target: {fileID: 8478203808490748424, guid: eaab0eac09f1a8242a12b9ca01bfa9d0,
         type: 3}
       propertyPath: progressSlider

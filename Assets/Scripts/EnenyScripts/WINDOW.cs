@@ -18,10 +18,12 @@ public class WINDOW : MonoBehaviour
 
     private Animator childAnimator;
     public GameObject childObject;
+    private AudioSource audioSource; // 소리 재생을 위한 오디오 소스
+    public AudioClip repairSound; // 재생할 소리 클립
 
     void Start()
     {
-
+        audioSource = GetComponent<AudioSource>();
         childAnimator = GetComponentInChildren<Animator>();
         // 자식 오브젝트 가져오기 (첫 번째 자식 가정)
         childObject = transform.GetChild(0).gameObject;
@@ -64,11 +66,16 @@ public class WINDOW : MonoBehaviour
                 // 보여주기
                 ShowSlider();
                 childObject.SetActive(true);
+                if (audioSource != null && repairSound != null)
+                {
+                    audioSource.PlayOneShot(repairSound);
+                }
             }
             else
             { 
                 //숨기기
                 HideSlider();
+
             }
         }
     }
