@@ -22,8 +22,13 @@ public class Weapon : MonoBehaviour
     public WeaponRecoil recoil;
 
     public int fireCount = 1;
-    
-    
+
+    public RectTransform crosshair; // 크로스헤어의 RectTransform 참조
+    public float shakeAmount = 5f; // 흔들림의 정도
+
+    public float enlargeAmount = 1.2f; // 크로스헤어 크기 확대 비율
+    public float enlargeDuration = 0.1f; // 크로스헤어 확대 지속 시간
+
     public int maxMagazineSize = 30;
     private int currentMagazineAmmo;
     public AudioClip CarbineshootSound;
@@ -33,6 +38,7 @@ public class Weapon : MonoBehaviour
     public AudioClip RPG7shootSound;
     public AudioClip RPG7reloadAudio;
 
+    private bool isCrosshairEnlarging = false; // 크로스헤어 확대 여부를 확인하는 변수
 
     private AudioSource audioSource;
     private void Awake()
@@ -85,6 +91,8 @@ public class Weapon : MonoBehaviour
                 recoil.Recoil();
                 if (CompareTag("RPG"))
                 {
+                    // 크로스헤어 흔들림 코루틴 시작
+                    StartCoroutine(ShakeCrosshair());
                     audioSource.clip = RPG7shootSound;
                     audioSource.Play();
                 }
@@ -95,8 +103,12 @@ public class Weapon : MonoBehaviour
                 ProcessRayCast();
                 recoil.Recoil();
                 currentMagazineAmmo--;
+                // 크로스헤어 흔들림 코루틴 시작
+                StartCoroutine(ShakeCrosshair());
                 if (CompareTag("Carbine"))
                 {
+                    // 크로스헤어 흔들림 코루틴 시작
+                    StartCoroutine(ShakeCrosshair());
                     audioSource.clip = CarbineshootSound;
                     audioSource.Play();
                 }
@@ -111,6 +123,11 @@ public class Weapon : MonoBehaviour
             {
                 StartCoroutine(Reload());
 
+            }
+            // 크로스헤어 크기 확대 코루틴 실행
+            if (crosshair != null && !isCrosshairEnlarging)
+            {
+                StartCoroutine(EnlargeCrosshair());
             }
 
             yield return new WaitForSeconds(timeBetweenShots);
@@ -158,7 +175,11 @@ public class Weapon : MonoBehaviour
     {
         canShoot = false;
         reloadText.gameObject.SetActive(true);
-
+        // 크로스헤어 비활성화
+        if (crosshair != null)
+        {
+            crosshair.gameObject.SetActive(false);
+        }
         yield return new WaitForSeconds(1.0f);
 
         int ammoNeeded = maxMagazineSize - currentMagazineAmmo;
@@ -192,9 +213,62 @@ public class Weapon : MonoBehaviour
             audioSource.Play();
         }
         reloadText.gameObject.SetActive(false);
-        
+        // 크로스헤어 다시 활성화
+        if (crosshair != null)
+        {
+            crosshair.gameObject.SetActive(true);
+        }
         DisplayAmmo();
         
+    }
+
+    IEnumerator ShakeCrosshair()
+    {
+        Vector2 originalPosition = crosshair.anchoredPosition;
+
+        // 짧은 시간 동안 크로스헤어가 흔들리게 함
+        for (float t = 0; t < 0.1f; t += Time.deltaTime)
+        {
+            crosshair.anchoredPosition = originalPosition + UnityEngine.Random.insideUnitCircle * shakeAmount;
+            yield return null;
+        }
+
+        // 원래 위치로 복구
+        crosshair.anchoredPosition = originalPosition;
+    }
+
+    IEnumerator EnlargeCrosshair()
+    {
+        isCrosshairEnlarging = true; // 크로스헤어 확대 시작
+
+        Vector3 originalScale = crosshair.localScale; // 원래 크기 저장
+        Vector3 targetScale = originalScale * enlargeAmount; // 목표 크기 설정
+
+        // 크로스헤어 크기를 부드럽게 확대
+        float elapsedTime = 0f;
+        while (elapsedTime < enlargeDuration)
+        {
+            crosshair.localScale = Vector3.Lerp(originalScale, targetScale, elapsedTime / enlargeDuration);
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+
+        // 목표 크기까지 확대
+        crosshair.localScale = targetScale;
+
+        // 원래 크기로 다시 축소
+        elapsedTime = 0f;
+        while (elapsedTime < enlargeDuration)
+        {
+            crosshair.localScale = Vector3.Lerp(targetScale, originalScale, elapsedTime / enlargeDuration);
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+
+        // 원래 크기로 복구
+        crosshair.localScale = originalScale;
+
+        isCrosshairEnlarging = false; // 크로스헤어 확대 종료
     }
     private void CreateHitImpact(RaycastHit hit)
     {

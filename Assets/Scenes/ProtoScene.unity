@@ -1665,6 +1665,12 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!224 &1223239093 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 4477546316087992797, guid: c64156589cbfcfe4cb766414e6498285,
+    type: 3}
+  m_PrefabInstance: {fileID: 470168197}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1293136472
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1680,6 +1686,11 @@ PrefabInstance:
       objectReference: {fileID: 30244624}
     - target: {fileID: 82883061238998282, guid: c5efc39a8aaf6e64ea40e9ad573e9b47,
         type: 3}
+      propertyPath: crosshair
+      value: 
+      objectReference: {fileID: 1223239093}
+    - target: {fileID: 82883061238998282, guid: c5efc39a8aaf6e64ea40e9ad573e9b47,
+        type: 3}
       propertyPath: reloadText
       value: 
       objectReference: {fileID: 40326333}
@@ -1693,6 +1704,11 @@ PrefabInstance:
       propertyPath: ammoText
       value: 
       objectReference: {fileID: 30244624}
+    - target: {fileID: 894576606936962346, guid: c5efc39a8aaf6e64ea40e9ad573e9b47,
+        type: 3}
+      propertyPath: crosshair
+      value: 
+      objectReference: {fileID: 1223239093}
     - target: {fileID: 894576606936962346, guid: c5efc39a8aaf6e64ea40e9ad573e9b47,
         type: 3}
       propertyPath: reloadText
@@ -1723,6 +1739,11 @@ PrefabInstance:
       propertyPath: ammoText
       value: 
       objectReference: {fileID: 30244624}
+    - target: {fileID: 7903693612927114282, guid: c5efc39a8aaf6e64ea40e9ad573e9b47,
+        type: 3}
+      propertyPath: crosshair
+      value: 
+      objectReference: {fileID: 1223239093}
     - target: {fileID: 7903693612927114282, guid: c5efc39a8aaf6e64ea40e9ad573e9b47,
         type: 3}
       propertyPath: reloadText
