@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class WINDOW : MonoBehaviour
 {
+    public BigRookGames.Build.BasicWoodWallController controller;
     public Slider progressSlider; // UI 슬라이더
     public float incrementAmount = 1.0f; // 슬라이더 증가량
      float incrementDuration = 1f; // 증가 시간
@@ -14,8 +15,21 @@ public class WINDOW : MonoBehaviour
     private CanvasGroup sliderCanvasGroup; // 투명도와 상호작용 관리하는 캔버스
     private Transform playerTransform; // 플레이어 위치 추적
 
+
+    private Animator childAnimator;
+    public GameObject childObject;
+
     void Start()
     {
+
+        childAnimator = GetComponentInChildren<Animator>();
+        // 자식 오브젝트 가져오기 (첫 번째 자식 가정)
+        childObject = transform.GetChild(0).gameObject;
+
+        // 자식 오브젝트 비활성화
+        childObject.SetActive(false);
+        
+      
         sliderCanvasGroup = progressSlider.GetComponent<CanvasGroup>(); // 슬라이더에서 슬라이더캔버스그룹 찾기
         if (sliderCanvasGroup == null)
         {
@@ -31,6 +45,8 @@ public class WINDOW : MonoBehaviour
         {
             Debug.LogError("Player object not found. Make sure the player has the 'Player' tag.");
         }
+
+        
     }
 
     void Update()
@@ -47,6 +63,7 @@ public class WINDOW : MonoBehaviour
             { 
                 // 보여주기
                 ShowSlider();
+                childObject.SetActive(true);
             }
             else
             { 
@@ -74,7 +91,9 @@ public class WINDOW : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            
             StartCoroutine(IncreaseSliderOverTime());
+            
         }
     }
 

@@ -1,4 +1,5 @@
 // 좀비에게 소리를 넣자
+using BigRookGames.Build;
 using StarterAssets;
 using System;
 using System.Collections;
@@ -26,6 +27,9 @@ public class EnemyFSM : MonoBehaviour
 
     // 플레이어 트랜스폼
     Transform player;
+
+    // 벽
+    public GameObject Wall;
 
     // 공격 가능 범위
     public float attackDistance = 2f;
@@ -81,7 +85,7 @@ public class EnemyFSM : MonoBehaviour
         // zomani = GetComponent<Animator>();
         // 플레이어의 트랜스폼 컴포넌트 받아오기
         player = GameObject.Find("PlayerCapsule").transform;
-
+        Wall = GameObject.FindWithTag("VerticalWall");
         // 캐릭터 컨트롤러 컴포넌트 받아오기
         cc = GetComponent<CharacterController>();
 
@@ -324,6 +328,7 @@ public class EnemyFSM : MonoBehaviour
             if (currentTime > attackDelay)
             {
                 player.GetComponent<CharacterStats>().TakeDamage(attackPower);
+                
                 zomani.SetBool("Attack", true);
                 // zomani.SetTrigger("ATTACK");
                 zomani.SetBool("Run", false);
@@ -353,6 +358,17 @@ public class EnemyFSM : MonoBehaviour
             }
 
 
+        }
+    }
+    private void OnTriggerStay(Collider other)
+    {
+        if(other.gameObject.CompareTag("VerticalWall"))
+        {
+            if (Time.deltaTime - lastAttackTime >= attackInterval)
+            {
+                Attack();  // 플레이어와 충돌 시 Attack 메서드 호출
+                lastAttackTime = Time.deltaTime;
+            }
         }
     }
     // 죽음 상태 함수
