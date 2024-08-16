@@ -29,7 +29,7 @@ public class UIManager : MonoBehaviour
 
     public void UpdateMoneyText(int money)
     {
-        moneyText.text = $"µ·: {money}¿ø";
+        moneyText.text = $" {money}¿ø";
         storeText.text = $" {money}¿ø";
     }
 }
