@@ -306,15 +306,16 @@ public class EnemyFSM : MonoBehaviour
             print("상태 전환 : Move -> Attack");
 
             // 누적 시간을 공격 딜레이 시간 만큼 미리 진행시켜 놓는다.
-            currentTime = attackDelay;
+            //currentTime = attackDelay;
         }
     }
     void Attack()
     {
-
+        print("1");
         //만일 플레이어가 공격 범위 이내에 있다면 플레이어를 공격한다.
         if (Vector3.Distance(transform.position, player.position) < attackDistance)
         {
+            print("2");
             PlayerInvincibility playerInvincibility = player.GetComponent<PlayerInvincibility>();
             if (playerInvincibility != null && playerInvincibility.IsInvincible())
             {
@@ -327,15 +328,16 @@ public class EnemyFSM : MonoBehaviour
 
             if (currentTime > attackDelay)
             {
-                player.GetComponent<CharacterStats>().TakeDamage(attackPower);
-                
+                print("3");
                 zomani.SetBool("Attack", true);
                 // zomani.SetTrigger("ATTACK");
                 zomani.SetBool("Run", false);
+                currentTime = 0;
+                player.GetComponent<CharacterStats>().TakeDamage(attackPower);
+                
 
 
                 print("공격");
-                currentTime = 0;
             }
 
         }

@@ -28,7 +28,7 @@ public class PlayerInvincibility : MonoBehaviour
 
     void Start()
     {
-        StartCoroutine(ApplyInvincibility());
+       StartCoroutine(ApplyInvincibility());
     }
 
     public void Respawn()
