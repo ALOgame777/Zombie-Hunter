@@ -1,4 +1,4 @@
-// 문이 위로 열리게 도전? 성공~~~~ + 문 5초 뒤에 사라지게 함.
+// 문 여는 소리
 using System.Collections;
 using System.Security.Cryptography;
 using UnityEngine;
@@ -18,6 +18,12 @@ public class FirstDOOR : MonoBehaviour
     public UIManager UIManager;
     private bool isDoorOpening = false; // 문이 열리고 있는 상태를 추적
 
+    // 오디오 소스
+    public AudioSource audioSource;
+
+    // 소리 클립
+    public AudioClip Upsound;
+
 
     void Start()
     {
@@ -28,6 +34,10 @@ public class FirstDOOR : MonoBehaviour
         {
             playerposition = player.transform;
         }
+
+        // AudioSource 컴포넌트 가져오기
+        audioSource = GetComponent<AudioSource>();
+
     }
 
     void Update()
@@ -46,6 +56,9 @@ public class FirstDOOR : MonoBehaviour
                 // 'E' 키를 누르면 문을 열도록 함
                 if (Input.GetKeyDown(KeyCode.E))
                 {
+                    // 'a' 소리 재생
+                    audioSource.PlayOneShot(Upsound);
+
                     AttemptToOpenDoor();
                     HideSlider();
                 }
@@ -90,6 +103,7 @@ public class FirstDOOR : MonoBehaviour
             // 문이 열리는 상태로 변경
             isDoorOpening = true;
             // 문 열림 처리 추가
+                        
         }
     }
 
@@ -103,6 +117,114 @@ public class FirstDOOR : MonoBehaviour
         Destroy(gameObject);
     }
 }
+// 문이 위로 열리게 도전? 성공~~~~ + 문 5초 뒤에 사라지게 함.
+//using System.Collections;
+//using System.Security.Cryptography;
+//using UnityEngine;
+//using UnityEngine.UI;
+
+//public class FirstDOOR : MonoBehaviour
+//{
+//    public GameObject ButtonUI;
+//    public GameObject DOOR;
+//    public Button opendoor; // 문 여는 버튼
+//    public float showDistance = 7.0f; // 버튼이 보이는 거리
+//    private Transform playerposition; // 플레이어 위치 추적
+//    private CanvasGroup Doorcanvasgroup; // 투명도와 상호작용 관리하는 캔버스
+
+//    public float DoorSpeed = 2; // 문이 올라가는 속도
+//    public ScoreManager ScoreManager;
+//    public UIManager UIManager;
+//    private bool isDoorOpening = false; // 문이 열리고 있는 상태를 추적
+
+
+
+
+//    void Start()
+//    {
+//        Doorcanvasgroup = opendoor.GetComponent<CanvasGroup>(); // 문 열기에서 캔버스그룹 찾기
+
+//        GameObject player = GameObject.FindGameObjectWithTag("Player"); // 플레이어를 찾아서 플레이어트랜스폼에 저장
+//        if (player != null)
+//        {
+//            playerposition = player.transform;
+//        }
+//    }
+
+//    void Update()
+//    {
+//        if (playerposition != null)
+//        {
+//            // 플레이어와 오브젝트 사이 거리를 계산
+//            float distance = Vector3.Distance(playerposition.position, transform.position);
+
+//            // 거리가 쇼거리보다 낮으면
+//            if (distance <= showDistance && !isDoorOpening)
+//            {
+//                // 보여주기
+//                ShowSlider();
+
+//                // 'E' 키를 누르면 문을 열도록 함
+//                if (Input.GetKeyDown(KeyCode.E))
+//                {
+//                    AttemptToOpenDoor();
+//                    HideSlider();
+//                }
+//            }
+//            else
+//            {
+//                // 숨기기
+//                HideSlider();
+//            }
+//        }
+
+//        // 문이 열리는 상태라면, 문을 위로 이동시킴
+//        if (isDoorOpening)
+//        {
+//            //OpenDoor();
+//            StartCoroutine(OpenDoor());
+//        }
+//    }
+
+//    private void ShowSlider() // 슬라이더 보여주기
+//    {
+//        Doorcanvasgroup.alpha = 1;
+//        Doorcanvasgroup.interactable = true;
+//        Doorcanvasgroup.blocksRaycasts = true;
+//    }
+
+//    private void HideSlider() // 슬라이더 숨기기
+//    {
+//        Doorcanvasgroup.alpha = 0;
+//        Doorcanvasgroup.interactable = false;
+//        Doorcanvasgroup.blocksRaycasts = false;
+//    }
+
+
+
+//    public void AttemptToOpenDoor()
+//    {
+//        if (ScoreManager.Instance.TryOpenDoor(700))
+//        {
+//            Debug.Log("적 사망 전 점수: " + ScoreManager.Instance.GetScore());
+//            Debug.Log("적 사망 후 점수: " + ScoreManager.Instance.GetScore());
+//            // 문이 열리는 상태로 변경
+//            isDoorOpening = true;
+//            // 문 열림 처리 추가
+
+//        }
+//    }
+
+//    IEnumerator OpenDoor()
+//    {
+//        // 문을 위로 이동시킴
+//        transform.position += Vector3.up * DoorSpeed * Time.deltaTime;
+
+//        yield return new WaitForSeconds(5f);
+//        print("소멸");
+//        Destroy(gameObject);
+//    }
+//}
 
 //// 일단 돈으로 문 열기 + e 키로 문 열기
 //using System.Collections;

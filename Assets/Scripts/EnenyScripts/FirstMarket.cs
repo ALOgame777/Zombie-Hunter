@@ -1,4 +1,4 @@
-// 구매하고 나서 다가가면 다른거 뜨게 하는 중,.,.+++++썽공~~~~
+// 소리 추가 가즈아
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
@@ -25,6 +25,12 @@ public class FirstMarket : MonoBehaviour
 
     private bool hasPurchased = false; // 구매 여부 확인
 
+    // 오디오 소스
+    public AudioSource audioSource;
+
+    // 소리 클립
+    public AudioClip DoubleSound;
+
     void Start()
     {
         // 각각의 버튼에서 CanvasGroup 컴포넌트 찾기
@@ -41,6 +47,9 @@ public class FirstMarket : MonoBehaviour
         Imiboyouzong.gameObject.SetActive(false);
         hanbunedubal.gameObject.SetActive(false);
         //UIManager.gameObject.SetActive(false);
+
+        // AudioSource 컴포넌트 가져오기
+        audioSource = GetComponent<AudioSource>();
 
     }
 
@@ -76,6 +85,9 @@ public class FirstMarket : MonoBehaviour
                         //Doubles.gameObject.SetActive(true);
                         //hanbunedubal.gameObject.SetActive(true);
 
+                        // 'a' 소리 재생
+                        audioSource.PlayOneShot(DoubleSound);
+
                         StartCoroutine(FlashIcons());
                     }
                 }
@@ -85,7 +97,7 @@ public class FirstMarket : MonoBehaviour
                 // 거리가 멀어지면 모든 슬라이더 숨기기
                 HideSlider(buyDoubleShotCanvasGroup);
                 HideSlider(imiboyouzongCanvasGroup);
-               
+
             }
         }
     }
@@ -127,6 +139,136 @@ public class FirstMarket : MonoBehaviour
         hanbunedubal.gameObject.SetActive(false);
     }
 }
+
+//// 구매하고 나서 다가가면 다른거 뜨게 하는 중,.,.+++++썽공~~~~
+//using System.Collections;
+//using UnityEngine;
+//using UnityEngine.UI;
+
+//public class FirstMarket : MonoBehaviour
+//{
+//    //public GameObject ButtonUI;
+//    //public GameObject DOOR;
+//    public Button BuyDoubleShot; // 더블 탭 구매 버튼
+//    public Button Imiboyouzong; // 이미 보유중 표시
+//    public float showDistance = 3.0f; // 버튼이 보이는 거리
+//    private Transform playerposition; // 플레이어 위치 추적
+//    private CanvasGroup buyDoubleShotCanvasGroup; // BuyDoubleShot의 CanvasGroup
+//    private CanvasGroup imiboyouzongCanvasGroup; // Imiboyouzong의 CanvasGroup
+
+//    public Weapon FirstGun;
+
+//    public Button hanbunedubal;
+//    public RawImage Doubles;
+
+
+//    public ScoreManager ScoreManager;
+//    public UIManager UIManager;
+
+//    private bool hasPurchased = false; // 구매 여부 확인
+
+//    void Start()
+//    {
+//        // 각각의 버튼에서 CanvasGroup 컴포넌트 찾기
+//        buyDoubleShotCanvasGroup = BuyDoubleShot.GetComponent<CanvasGroup>();
+//        imiboyouzongCanvasGroup = Imiboyouzong.GetComponent<CanvasGroup>();
+
+//        GameObject player = GameObject.FindGameObjectWithTag("Player"); // 플레이어를 찾아서 플레이어 트랜스폼에 저장
+//        if (player != null)
+//        {
+//            playerposition = player.transform;
+//        }
+
+//        // 초기에는 Imiboyouzong 버튼을 숨김
+//        Imiboyouzong.gameObject.SetActive(false);
+//        hanbunedubal.gameObject.SetActive(false);
+//        //UIManager.gameObject.SetActive(false);
+
+//    }
+
+//    void Update()
+//    {
+//        if (playerposition != null)
+//        {
+//            // 플레이어와 오브젝트 사이 거리를 계산
+//            float distance = Vector3.Distance(playerposition.position, transform.position);
+
+//            if (distance <= showDistance)
+//            {
+//                if (hasPurchased)
+//                {
+//                    if (Input.GetKeyDown(KeyCode.E))
+//                    {
+//                        // 이미 구매한 경우 Imiboyouzong 버튼 보여주기
+//                        ShowSlider(imiboyouzongCanvasGroup);
+//                    }
+//                }
+//                else
+//                {
+//                    // 구매하지 않은 경우 BuyDoubleShot 버튼 보여주기
+//                    ShowSlider(buyDoubleShotCanvasGroup);
+
+//                    // 'E' 키를 누르면 구매 함
+//                    if (Input.GetKeyDown(KeyCode.E))
+//                    {
+//                        DoubleShoot();
+//                        BuyDoubleShot.gameObject.SetActive(false);
+//                        Imiboyouzong.gameObject.SetActive(true);
+//                        hasPurchased = true;
+//                        //Doubles.gameObject.SetActive(true);
+//                        //hanbunedubal.gameObject.SetActive(true);
+
+//                        StartCoroutine(FlashIcons());
+//                    }
+//                }
+//            }
+//            else
+//            {
+//                // 거리가 멀어지면 모든 슬라이더 숨기기
+//                HideSlider(buyDoubleShotCanvasGroup);
+//                HideSlider(imiboyouzongCanvasGroup);
+               
+//            }
+//        }
+//    }
+
+//    private void ShowSlider(CanvasGroup canvasGroup)
+//    {
+//        canvasGroup.alpha = 1;
+//        canvasGroup.interactable = true;
+//        canvasGroup.blocksRaycasts = true;
+//    }
+
+//    private void HideSlider(CanvasGroup canvasGroup)
+//    {
+//        canvasGroup.alpha = 0;
+//        canvasGroup.interactable = false;
+//        canvasGroup.blocksRaycasts = false;
+//    }
+
+//    public void DoubleShoot()
+//    {
+//        if (ScoreManager.Instance.BuyDoubleShoot(2000))
+//        {
+//            FirstGun.fireCount = 2;
+//            //Debug.Log("적 사망 전 점수: " + ScoreManager.Instance.GetScore());
+//            //Debug.Log("적 사망 후 점수: " + ScoreManager.Instance.GetScore());
+//        }
+//    }
+//    private IEnumerator FlashIcons()
+//    {
+//        // Doubles와 hanbunedubal를 5초 동안 보이도록 설정
+//        Doubles.gameObject.SetActive(true);
+//        hanbunedubal.gameObject.SetActive(true);
+
+//        // 5초 동안 대기
+//        yield return new WaitForSeconds(5.0f);
+
+//        // 5초가 지나면 Doubles와 hanbunedubal을 숨김
+//        Doubles.gameObject.SetActive(false);
+//        hanbunedubal.gameObject.SetActive(false);
+//    }
+//}
 
 //// 정상적으로 문과 같이 'e' 누르면 구매가 가능한데, 문제는 한번 사면 아예 끝남.
 //using System.Collections;

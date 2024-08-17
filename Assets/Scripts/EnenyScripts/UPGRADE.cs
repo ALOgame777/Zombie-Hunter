@@ -22,7 +22,7 @@ public class UPGRADE : MonoBehaviour
     public AudioSource audioSource;
 
     // 家府 努赋
-    public AudioClip Upsound;
+    public AudioClip upgradesound;
     //public AudioClip poisonSound;
 
 
@@ -65,7 +65,7 @@ public class UPGRADE : MonoBehaviour
                         percents.gameObject.SetActive(true);
 
                         // 'a' 家府 犁积
-                        audioSource.PlayOneShot(Upsound);
+                        audioSource.PlayOneShot(upgradesound);
                     }
                 }
                

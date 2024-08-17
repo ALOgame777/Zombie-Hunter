@@ -334,9 +334,6 @@ public class EnemyFSM : MonoBehaviour
                 zomani.SetBool("Run", false);
                 currentTime = 0;
                 player.GetComponent<CharacterStats>().TakeDamage(attackPower);
-                
-
-
                 print("АјАн");
             }
 
