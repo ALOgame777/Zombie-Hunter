@@ -9622,7 +9622,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 473d6d3ec0d161b4a85e466c8c6da3fb, type: 2}
+  - {fileID: 2100000, guid: c50d77affeb31e14c9c062c282f13fc8, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -9647,7 +9647,7 @@ ParticleSystemRenderer:
   m_MeshDistribution: 0
   m_SortMode: 3
   m_MinParticleSize: 0
-  m_MaxParticleSize: 0.15
+  m_MaxParticleSize: 1
   m_CameraVelocityScale: 0
   m_VelocityScale: 0
   m_LengthScale: 2
@@ -9687,7 +9687,7 @@ GameObject:
   - component: {fileID: 19800004}
   - component: {fileID: 19900004}
   m_Layer: 0
-  m_Name: FlareMobile
+  m_Name: Flare
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9702,7 +9702,7 @@ Transform:
   m_GameObject: {fileID: 100006}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.0031466, y: 0, z: -1.3804252}
+  m_LocalPosition: {x: -1.7827636, y: 2.249741, z: 3.4593909}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
