@@ -350,7 +350,7 @@ MonoBehaviour:
   fastMoveSpeed: 10
   gravity: -9.81
   poisonInterval: 16
-  poisonAreaPrefab: {fileID: 4074008827375396739, guid: 0bbf8d77206d36f4cbdbb8c26cb1c2b2,
+  poisonAreaPrefab: {fileID: 8958660862298456756, guid: d5638fa1bfd16fc4da53228f09f85512,
     type: 3}
   poisonRadius: 15
   poisonDuration: 10
