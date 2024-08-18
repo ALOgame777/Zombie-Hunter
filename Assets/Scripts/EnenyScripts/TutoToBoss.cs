@@ -28,7 +28,9 @@ public class TutoToBoss : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             // 소리 재생
-            audioSource.PlayOneShot(potalsound);
+            audioSource.clip = potalsound;
+            audioSource.volume = 300;
+            audioSource.Play();
 
             // 3초 후에 Scene을 로드하는 코루틴 실행
             StartCoroutine(LoadSceneAfterDelay(3f));
