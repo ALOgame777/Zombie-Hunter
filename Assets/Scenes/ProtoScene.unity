@@ -4359,7 +4359,7 @@ PrefabInstance:
     - target: {fileID: 2807626886512791995, guid: eaab0eac09f1a8242a12b9ca01bfa9d0,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4148047014255652213, guid: eaab0eac09f1a8242a12b9ca01bfa9d0,
         type: 3}
@@ -4381,6 +4381,26 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -1.15
       objectReference: {fileID: 0}
+    - target: {fileID: 5646120257105186779, guid: eaab0eac09f1a8242a12b9ca01bfa9d0,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5646120257105186779, guid: eaab0eac09f1a8242a12b9ca01bfa9d0,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 6081066052790145995, guid: eaab0eac09f1a8242a12b9ca01bfa9d0,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6081066052790145995, guid: eaab0eac09f1a8242a12b9ca01bfa9d0,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 6167772825614319519, guid: eaab0eac09f1a8242a12b9ca01bfa9d0,
         type: 3}
       propertyPath: Upsound
@@ -4401,6 +4421,11 @@ PrefabInstance:
       propertyPath: audioSource
       value: 
       objectReference: {fileID: 1707322872}
+    - target: {fileID: 6287025153488222203, guid: eaab0eac09f1a8242a12b9ca01bfa9d0,
+        type: 3}
+      propertyPath: ammoType
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6317474207001659781, guid: eaab0eac09f1a8242a12b9ca01bfa9d0,
         type: 3}
       propertyPath: Enter
@@ -4459,7 +4484,7 @@ PrefabInstance:
     - target: {fileID: 8660608908534323850, guid: eaab0eac09f1a8242a12b9ca01bfa9d0,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
